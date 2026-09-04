@@ -22,6 +22,7 @@ img {
     /* Color */
     --color-bg: #fafafa;
     --color-surface: #ffffff;
+    --color-surface-alt: #f1f5f9;
     --color-text: #1f2937;
     --color-muted: #6b7280;
     --color-accent: #0369a1;
@@ -39,10 +40,12 @@ img {
     --text-h1: 2.25rem;
     --leading-body: 1.6;
     --leading-heading: 1.2;
+    --font-stack: system-ui, 'Segoe UI', Tahoma, sans-serif;
 
     /* Layout */
     --page-width: 64rem;
     --reading-width: 70ch;
+    --radius-md: 8px;
 }
 
 /* ==========================
@@ -53,6 +56,7 @@ img {
     color: var(--color-text);
     font-size: var(--text-base);
     line-height: var(--leading-body);
+    font-family: var(--font-stack);
 }
 
 h1 { font-size: var(--text-h1); line-height: var(--leading-heading); }
@@ -73,4 +77,37 @@ a { color: var(--color-accent); }
     max-width: var(--page-width);
     margin: 0 auto;
     padding: var(--space-lg) var(--space-md);
-}
+   }
+
+  
+    header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+    padding: var(--space-xl);
+    background-color: var(--color-surface-alt);
+    border-radius: var(--radius-md);
+    min-height: 18rem;
+    }
+
+    header > div {
+        flex: 1;
+    }
+
+    nav {
+        display: flex;
+        gap: var(--space-md);
+    }
+ 
+    nav a {
+        color: var(--color-text);
+    }
+
+    nav a:hover {
+        color: var(--color-accent);
+    }
+
+    section {
+        margin-bottom: var(--space-xl);
+    }
+
