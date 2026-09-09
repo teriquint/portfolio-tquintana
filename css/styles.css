@@ -61,6 +61,7 @@ img {
     font-family: var(--font-stack);
 }
 
+
 h1 { font-size: var(--text-h1); line-height: var(--leading-heading); }
 h2 { font-size: var(--text-h2); line-height: var(--leading-heading); }
 h3 { font-size: var(--text-h3); line-height: var(--leading-heading); }
@@ -70,6 +71,7 @@ p { margin-bottom: var(--space-md); }
 p:last-child { margin-bottom: 0; }
 
 a { color: var(--color-accent); }
+ul { padding-left: var(--space-lg); }
 
 
 /* ==========================
