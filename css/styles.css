@@ -24,7 +24,7 @@ img {
     --color-surface: #ffffff;
     --color-surface-alt: #f1f5f9;
     --color-text: #1f2937;
-    --color-muted: #6b7280;
+    --color-muted: #4b5563;
     --color-accent: #0369a1;
 
     /* Spacing — a modular scale */
@@ -53,6 +53,11 @@ img {
 /* ==========================
    3. BASE ELEMENT STYLES
    ========================== */
+a:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
 body {
     background-color: var(--color-bg);
     color: var(--color-text);
