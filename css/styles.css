@@ -27,7 +27,7 @@ img {
     --color-surface-alt: #f1f5f9;
     --color-text: #1f2937;
     --color-muted: #4b5563;
-    --color-accent: #0369a1;
+    --color-accent: #1D4ED8;
 
     /* Spacing — a modular scale */
     --space-sm: 0.5rem;
@@ -153,6 +153,7 @@ nav {
 
 nav a {
     color: var(--color-text);
+    transition: color 0.2s;
 }
 
 nav a:hover {
