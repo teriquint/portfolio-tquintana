@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+
+
+</head>
+
+<body>
+    <header>
+    </header>
+    <main>
+        <section class="add-section">
+            <h2>Add New Favorite</h2>
+            <form id="add-favorite-form">
+                <div class="form-group">
+                    <label for="name">Place Name *</label>
+                    <input type="text" id="name" name="name" required aria-required="true">
+                </div>
+                <!-- category select, rating select, notes textarea -->
+                <button type="submit" class="btn btn-primary">Add Favorite</button>
+            </form>
+        </section>
+
+        <section class="controls-section">
+            <label for="search-input">Search favorites</label>
+            <input type="search" id="search-input" placeholder="Search names and notes">
+
+            <label for="category-filter">Filter by category</label>
+            <select id="category-filter">
+                <option value="all">All categories</option>
+                <!-- one option per category you used in the add form -->
+            </select>
+        </section>
+
+        <section class="favorites-section">
+            <div id="favorites-list" class="favorites-grid">
+                <p class="empty-message">No favorites yet. Add your first favorite place above!</p>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>

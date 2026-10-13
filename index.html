@@ -4,261 +4,407 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Portfolio of Teri Quintana featuring web development, data, and digital communication projects."
+    >
+
     <title>Teri Quintana | Portfolio</title>
+
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+
     <nav class="nav-container">
         <a href="index.html" class="logo">Teri Quintana</a>
 
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="index.html#contact">Contact</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <header>
         <div class="header-text">
+
             <h1>Teri Quintana</h1>
 
             <p>
-                DCDA student and higher education professional combining experience in communication,
-                organization, data, and digital design.
+                DCDA student and higher education professional combining
+                communication, organization, data, and digital design.
             </p>
 
             <p>
-                I enjoy using technology to pull and organize data, create visualizations, and make
-                information clearer and easier for people to understand.
+                I enjoy using technology to organize information, work with data,
+                create useful web applications, and make information easier for
+                people to understand.
             </p>
+
         </div>
     </header>
 
     <main>
-        <section>
-            <h2>Welcome</h2>
 
-            <p>
-                Welcome to my portfolio. Here you can explore projects that reflect my work in web design,
-                data analysis, digital communication, and visual design.
-            </p>
+        <section class="about" id="about">
 
-            <p><a href="#work">View My Projects</a></p>
-        </section>
-
-        <section class="about">
             <div class="about-image">
-                <img src="images/headshot.png" alt="Headshot of Teri Quintana">
+
+                <img
+                    src="images/headshot.png"
+                    alt="Headshot of Teri Quintana"
+                >
+
             </div>
 
             <div class="about-text">
-                <h2 id="about">About Me</h2>
+
+                <h2>About Me</h2>
 
                 <p>
-                    I support Graduate Career Management and Neeley & Associates at TCU's Neeley School
-                    of Business. I enjoy work that combines communication, organization, technology,
-                    and helping people connect with useful information and resources.
+                    I support Graduate Career Management and Neeley & Associates
+                    at TCU's Neeley School of Business. I enjoy work that combines
+                    communication, organization, technology, and helping people
+                    connect with useful information and resources.
                 </p>
 
                 <p>
-                    Through the DCDA program, I am adding web design, data analysis, and digital
-                    communication skills to my professional experience.
+                    Through the DCDA program, I have developed skills in web design,
+                    JavaScript, data analysis, accessibility, and digital
+                    communication. This semester I also learned how to build
+                    interactive web applications, save and organize user data,
+                    and publish my work with GitHub Pages.
                 </p>
 
-                <p><a href="about.html">Learn More About Me</a></p>
+                <p>
+                    <a href="about.html">Learn More About Me</a>
+                </p>
+
             </div>
+
         </section>
 
-        <section>
-            <h2 id="work">My Work</h2>
+        <section id="projects">
+
+            <h2>WRIT 40363 Projects</h2>
 
             <p>
-                These projects combine my DCDA coursework with professional experience and show how I use
-                digital tools to organize information, communicate ideas, and create useful resources.
+                These four projects show my progression through WRIT 40363,
+                from building my first portfolio to creating interactive
+                JavaScript applications.
             </p>
+
+            <ul class="project-list">
+
+                <li class="project-card">
+
+                    <h3>Project 1: Personal Portfolio</h3>
+
+                    <p>
+                        My first project was a responsive personal portfolio built
+                        with HTML and CSS. It gave me a place to practice semantic
+                        HTML, responsive layouts, accessibility, and organizing
+                        information for an online audience.
+                    </p>
+
+                    <p>
+                        This original version also became the starting point for
+                        the revised portfolio I created at the end of the course.
+                    </p>
+
+                    <p>
+                        <strong>Technologies:</strong>
+                        HTML, CSS, Flexbox, Grid, GitHub Pages
+                    </p>
+
+                    <p>
+                        <a href="projects/project1-original/index.html">
+                            View Original Portfolio
+                        </a>
+                    </p>
+
+                </li>
+
+                <li class="project-card">
+
+                    <h3>Project 2: Local Favorites Tracker</h3>
+
+                    <p>
+                        I created a web app for saving and organizing favorite
+                        local places. Users can add favorites, search and filter
+                        them, delete places, and keep their information after
+                        refreshing the page.
+                    </p>
+
+                    <p>
+                        This project helped me become more comfortable working
+                        with JavaScript, arrays, forms, DOM manipulation, and
+                        localStorage.
+                    </p>
+
+                    <p>
+                        <strong>Technologies:</strong>
+                        HTML, CSS, JavaScript, localStorage
+                    </p>
+
+                    <p>
+                        <a href="projects/project2-tracker/index.html">
+                            View Local Favorites Tracker
+                        </a>
+                    </p>
+
+                </li>
+
+                <li class="project-card">
+
+                    <h3>Project 3: Personal Data Dashboard</h3>
+
+                    <p>
+                        I built a personal data dashboard that combines several
+                        small widgets into one page. It includes weather data,
+                        daily quotes, and a light and dark theme that saves the
+                        user's preference.
+                    </p>
+
+                    <p>
+                        This project gave me more experience working with
+                        JavaScript, JSON, Fetch, and creating an interface that
+                        presents different kinds of information clearly.
+                    </p>
+
+                    <p>
+                        <strong>Technologies:</strong>
+                        HTML, CSS, JavaScript, JSON, Fetch API, localStorage
+                    </p>
+
+                    <p>
+                        <a href="projects/project3-dashboard/index.html">
+                            View Personal Data Dashboard
+                        </a>
+                    </p>
+
+                </li>
+
+                <li class="project-card">
+
+                    <h3>Project Zed: Task Tracker</h3>
+
+                    <p>
+                        I created a Task Tracker to help organize multiple
+                        projects, tasks, and deadlines. Users can create projects,
+                        add tasks and details, track deadline status, complete
+                        projects, and keep their information saved between visits.
+                    </p>
+
+                    <p>
+                        My new technique for this project was using JavaScript
+                        dates to compare deadlines and automatically organize
+                        tasks as Past Due, Due Today, In Process, or Completed.
+                    </p>
+
+                    <p>
+                        <strong>Technologies:</strong>
+                        HTML, CSS, JavaScript, Date objects, localStorage
+                    </p>
+
+                    <p>
+                        <a href="projects/project-zed/index.html">
+                            View Task Tracker
+                        </a>
+                    </p>
+
+                </li>
+
+            </ul>
+
         </section>
 
-        <section>
+        <section id="skills">
+
             <h2>Skills</h2>
 
             <ul class="skills-grid">
+
                 <li class="skill-card">
                     <h3>HTML</h3>
-
                     <p>
-                        I use HTML to create structured web pages and organize content for clear navigation
-                        and readability.
+                        Semantic page structure, forms, navigation, links,
+                        images, and accessible content.
                     </p>
                 </li>
 
                 <li class="skill-card">
-                    <h3>Data Analysis</h3>
-
+                    <h3>CSS</h3>
                     <p>
-                        I use data analysis to explore questions, identify patterns, and create visualizations
-                        that make information easier to understand.
+                        Responsive layouts, Flexbox, Grid, media queries,
+                        color, spacing, and visual design.
+                    </p>
+                </li>
+
+                <li class="skill-card">
+                    <h3>JavaScript</h3>
+                    <p>
+                        Events, arrays, functions, DOM manipulation,
+                        filtering, sorting, and interactive features.
+                    </p>
+                </li>
+
+                <li class="skill-card">
+                    <h3>Data</h3>
+                    <p>
+                        Working with JSON, Fetch, data organization,
+                        analysis, and visual presentation.
+                    </p>
+                </li>
+
+                <li class="skill-card">
+                    <h3>Accessibility & UX</h3>
+                    <p>
+                        Semantic HTML, labels, alt text, keyboard focus,
+                        color contrast, and responsive design.
+                    </p>
+                </li>
+
+                <li class="skill-card">
+                    <h3>Git & GitHub</h3>
+                    <p>
+                        Version control, commits, repositories,
+                        GitHub Desktop, and deployment with GitHub Pages.
+                    </p>
+                </li>
+
+                <li class="skill-card">
+                    <h3>AI-Assisted Development</h3>
+                    <p>
+                        Using AI for brainstorming, troubleshooting,
+                        learning new techniques, and improving code while
+                        testing and understanding the work I use.
                     </p>
                 </li>
 
                 <li class="skill-card">
                     <h3>Digital Communication</h3>
-
                     <p>
-                        I create digital content that combines information and visual design to communicate
-                        clearly with different audiences.
+                        Organizing information and combining writing,
+                        visual design, and technology for different audiences.
                     </p>
                 </li>
+
             </ul>
+
         </section>
 
         <section>
-            <h2>Projects</h2>
+
+            <h2>Additional Work</h2>
 
             <ul class="project-list">
 
-                <li class="project-card featured">
+                <li class="project-card">
+
                     <h3>Higher Ed Marketing Across Platforms</h3>
 
-                    <img src="images/CapstoneProject_2026.png"
-                        alt="Homepage preview of the Higher Ed Marketing Across Platforms capstone project">
-
-                    <p><time datetime="2026-05">May 2026</time></p>
+                    <img
+                        src="images/CapstoneProject_2026.png"
+                        alt="Homepage preview of the Higher Ed Marketing Across Platforms capstone project"
+                    >
 
                     <p>
-                        Built a capstone website examining how universities and business schools present
-                        themselves across Instagram, LinkedIn, and their websites. I compared patterns
-                        across platforms and presented my research and findings in a designed, navigable website.
+                        Built a capstone website examining how universities
+                        and business schools present themselves across Instagram,
+                        LinkedIn, and their websites.
                     </p>
 
                     <p>
-                        <a href="https://teriquint.github.io/CapstoneFinalProject/" target="_blank" rel="noopener">
+                        <a
+                            href="https://teriquint.github.io/CapstoneFinalProject/"
+                            target="_blank"
+                            rel="noopener"
+                        >
                             View Higher Ed Marketing Across Platforms
                         </a>
                     </p>
+
                 </li>
 
                 <li class="project-card">
-                    <h3>Personal Portfolio</h3>
 
-                    <p><time datetime="2026-08">August 2026</time></p>
-
-                    <p>
-                        I am building this responsive portfolio in WRIT 40363 using HTML, CSS, Flexbox,
-                        Grid, and GitHub Pages. The project gives me a place to practice web design while
-                        documenting and presenting work from my DCDA coursework.
-                    </p>
-                </li>
-
-                <li class="project-card">
-                    <h3>Local Favorites Tracker</h3>
-
-                    <p><time datetime="2026-09">September 2026</time></p>
-
-                    <p>
-                        I built this web app in WRIT 40363 to keep track of favorite local places.
-                        Users can add favorites, search and filter them, delete places, and save
-                        their favorites using localStorage.
-                    </p>
-
-                    <p>
-                        <a href="https://teriquint.github.io/local-favorites-tracker/" target="_blank"
-                            rel="noopener">
-                            View Local Favorites Tracker
-                        </a>
-                    </p>
-                </li>
-
-                <li class="project-card">
                     <h3>Big 12 Case Competition Program</h3>
 
-                    <img src="images/Big12prog_2026.png"
-                        alt="Cover of the 18th Annual Big 12 MBA Case Competition program">
-
-                    <p><time datetime="2026-03">March 2026</time></p>
+                    <img
+                        src="images/Big12prog_2026.png"
+                        alt="Cover of the 18th Annual Big 12 MBA Case Competition program"
+                    >
 
                     <p>
-                        Designed a program in Canva for the 18th Annual Big 12 MBA Case Competition
-                        hosted by TCU Neeley. I organized event information into a polished visual guide
-                        that participants and guests could easily follow throughout the competition.
+                        Designed a program in Canva for the 18th Annual
+                        Big 12 MBA Case Competition hosted by TCU Neeley.
+                        I organized event information into a polished visual
+                        guide for participants and guests.
                     </p>
 
                     <p>
-                        <a href="https://canva.link/5jg4415i4o3rdum" target="_blank" rel="noopener">
+                        <a
+                            href="https://canva.link/5jg4415i4o3rdum"
+                            target="_blank"
+                            rel="noopener"
+                        >
                             View Big 12 Case Competition Program
                         </a>
                     </p>
-                </li>
 
-                <li class="project-card">
-                    <h3>Personal Data Dashboard</h3>
-
-                    <p><time datetime="2026-10">October 2026</time></p>
-
-                    <p>
-                        A personal data dashboard that uses JavaScript, JSON, and the Fetch API
-                        to display weather data. It also includes a light and dark theme toggle
-                        that saves the user's preference.
-                    </p>
-
-                    <p>
-                        <a href="https://teriquint.github.io/dashboard/" target="_blank" rel="noopener">
-                            View Personal Data Dashboard
-                        </a>
-                    </p>
                 </li>
 
             </ul>
+
         </section>
 
         <section id="contact">
+
             <h2>Contact</h2>
 
-            <p>You can reach me by email or through LinkedIn and GitHub.</p>
+            <p>
+                You can reach me by email or connect with me through
+                LinkedIn and GitHub.
+            </p>
 
             <ul>
-                <li>
-                    <a href="mailto:t.quintana@tcu.edu">Email Me</a>
-                </li>
 
                 <li>
-                    <a href="https://www.linkedin.com/in/teri-quintana-64562327b" target="_blank"
-                        rel="noopener">
-                        My LinkedIn
+                    <a href="mailto:t.quintana@tcu.edu">
+                        Email Me
                     </a>
                 </li>
 
                 <li>
-                    <a href="https://github.com/teriquint" target="_blank" rel="noopener">
-                        My GitHub
+                    <a
+                        href="https://www.linkedin.com/in/teri-quintana-64562327b"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        LinkedIn
                     </a>
                 </li>
+
+                <li>
+                    <a
+                        href="https://github.com/teriquint"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        GitHub
+                    </a>
+                </li>
+
             </ul>
+
         </section>
+
     </main>
-
-    <aside id="resources">
-        <h2>Resources</h2>
-
-        <ul>
-            <li>
-                <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-                - where I save and publish my website projects.
-            </li>
-
-            <li>
-                <a href="https://www.canva.com/" target="_blank" rel="noopener">Canva</a>
-                - a tool I use to create graphics and visual content.
-            </li>
-
-            <li>
-                <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">
-                    Visual Studio Code
-                </a>
-                - the program I use to write and edit my HTML and CSS.
-            </li>
-        </ul>
-    </aside>
 
     <footer>
         <p>&copy; 2026 Teri Quintana - Personal Portfolio</p>

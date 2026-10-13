@@ -1,0 +1,436 @@
+:root {
+    --color-purple: #4d1979;
+    --color-purple-dark: #321052;
+
+    --color-toad-teal: #007b6e;
+    --color-academic-aqua: #95dacf;
+
+    --color-yellow: #fff4c7;
+    --color-pink: #f9dfe3;
+    --color-lavender: #eee7f4;
+
+    --color-grey: #a3a9ac;
+    --color-grey-light: #f3f3f3;
+    --color-border: #d7d7d7;
+
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-text: #222222;
+    --color-muted: #666666;
+}
+
+
+/* GENERAL */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-grey-light);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+main {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    padding: 2rem 0 4rem;
+}
+
+
+/* PAGE HEADER */
+
+header {
+    background-color: var(--color-purple);
+    color: var(--color-white);
+    padding: 2.25rem;
+    border-radius: 18px;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    margin: 0.4rem 0 0;
+    font-size: 1.05rem;
+}
+
+
+/* MAIN SECTIONS */
+
+main>section {
+    background-color: var(--color-white);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    border-radius: 14px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+main>section>h2 {
+    color: var(--color-purple);
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+}
+
+
+/* FORMS */
+
+form {
+    display: grid;
+    gap: 1rem;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 0.35rem;
+    color: var(--color-black);
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font: inherit;
+    background-color: var(--color-white);
+    color: var(--color-text);
+    border: 1px solid var(--color-grey);
+    border-radius: 8px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid rgba(77, 25, 121, 0.2);
+    border-color: var(--color-purple);
+}
+
+
+/* BUTTONS */
+
+button {
+    background-color: var(--color-purple);
+    color: var(--color-white);
+    border: none;
+    border-radius: 24px;
+    padding: 0.48rem 0.85rem;
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: auto;
+}
+
+button:hover {
+    background-color: var(--color-purple-dark);
+}
+
+button:focus-visible {
+    outline: 3px solid var(--color-black);
+    outline-offset: 3px;
+}
+
+form button {
+    width: fit-content;
+}
+
+
+/* MONTH HEADING */
+
+.month-heading {
+    color: var(--color-purple);
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 4px solid var(--color-purple);
+}
+
+
+/* PROJECT SECTION */
+
+.project-section {
+    margin-bottom: 3rem;
+}
+
+
+/* PROJECT BANNER */
+
+.project-heading {
+    background-color: var(--color-lavender);
+    border: 2px solid var(--color-purple);
+    border-left: 8px solid var(--color-purple);
+    border-radius: 18px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.project-heading h3 {
+    color: var(--color-purple);
+    font-size: 1.7rem;
+    margin: 0 0 0.35rem;
+}
+
+.project-heading p {
+    margin: 0.2rem 0;
+}
+
+.project-heading button {
+    margin-top: 0.7rem;
+}
+
+/* COMPLETED PROJECT */
+
+.project-completed .project-heading {
+    background-color: #e6f6f3;
+    border: 2px solid var(--color-academic-aqua);
+    border-left: 8px solid var(--color-academic-aqua);
+}
+
+.project-completed .project-heading h3,
+.project-completed .project-heading p {
+    color: var(--color-purple-dark);
+}
+
+.project-completed .project-card {
+    display: none;
+}
+
+
+/* TASK AREA */
+
+.project-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+
+/* TASK CARD LAYOUT */
+
+.project-tasks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+
+/* INDIVIDUAL TASK */
+
+.task-item {
+    flex: 0 0 300px;
+    width: 300px;
+    min-height: 250px;
+    padding: 1.25rem;
+    margin: 0;
+    border-radius: 18px;
+}
+
+.task-item h4 {
+    margin: 0 0 0.35rem;
+    color: var(--color-purple-dark);
+    font-size: 1.2rem;
+}
+
+.task-item p {
+    margin: 0.2rem 0;
+}
+
+.task-item button {
+    width: auto;
+    margin-top: 0.75rem;
+    margin-right: 0.3rem;
+    padding: 0.42rem 0.75rem;
+    font-size: 0.84rem;
+}
+
+
+/* IN PROCESS */
+
+.task-in-process {
+    background-color: var(--color-yellow);
+}
+
+.task-in-process h4,
+.task-in-process p {
+    color: var(--color-purple-dark);
+}
+
+
+/* PAST DUE */
+
+.task-overdue {
+    background-color: var(--color-pink);
+}
+
+.task-overdue h4,
+.task-overdue p {
+    color: var(--color-purple-dark);
+}
+
+/* COMPLETED TASK */
+
+.task-completed {
+    background-color: var(--color-white);
+    border-left: 7px solid var(--color-academic-aqua);
+}
+
+.task-completed h4,
+.task-completed p {
+    color: var(--color-purple-dark);
+}
+
+/* TASK DETAILS */
+
+.task-details {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.task-details p {
+    margin: 0;
+}
+
+.task-details p+p {
+    margin-top: 0.5rem;
+}
+
+
+/* DETAILS BORDER BY STATUS */
+
+.task-overdue .task-details {
+    border-left: 6px solid #e5a1ac;
+}
+
+.task-in-process .task-details {
+    border-left: 6px solid #e3c75f;
+}
+
+.task-completed .task-details {
+    border-left: 6px solid var(--color-academic-aqua);
+}
+
+
+/* DELETE BUTTON */
+
+.task-item button:last-of-type {
+    background-color: var(--color-black);
+}
+
+.task-item button:last-of-type:hover {
+    background-color: #333333;
+}
+
+
+/* EMPTY MESSAGE */
+
+#empty-message {
+    color: var(--color-muted);
+    font-style: italic;
+}
+
+
+/* DESKTOP FORM LAYOUT */
+
+@media (min-width: 700px) {
+    form {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: end;
+    }
+
+    form button {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    main {
+        width: 94%;
+        padding-top: 1rem;
+    }
+
+    .task-item {
+        flex: 0 0 100%;
+        width: 100%;
+        min-height: auto;
+    }
+
+    header {
+        padding: 1.5rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    main>section {
+        padding: 1rem;
+    }
+
+    .month-heading {
+        font-size: 1.5rem;
+    }
+
+    .project-heading {
+        padding: 1rem;
+    }
+
+    .project-heading h3 {
+        font-size: 1.45rem;
+    }
+
+    .project-card {
+        padding: 0.75rem;
+    }
+
+    .task-item button:last-of-type {
+        background-color: var(--color-black);
+        padding: 0.38rem 0.7rem;
+        font-size: 0.78rem;
+    }
+}
+
+.project-notes {
+    background-color: var(--color-white);
+    border-left: 6px solid var(--color-academic-aqua);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.project-notes label {
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.project-notes textarea {
+    margin-bottom: 0.75rem;
+}
+
+.project-notes button {
+    display: block;
+}

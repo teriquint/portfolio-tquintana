@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teri's Personal Data Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <header>
+        <h1>Teri's Personal Data Dashboard</h1>
+        <button type="button" id="theme-toggle">Toggle dark mode</button>
+    </header>
+
+    <main id="main" tabindex="-1">
+        <section class="widget" aria-labelledby="weather-heading">
+            <h2 id="weather-heading">Sample Weather</h2>
+
+            <div id="weather-display" class="loading"
+                 role="status" aria-live="polite">
+                Loading weather...
+            </div>
+        </section>
+
+        <section class="widget" aria-labelledby="quote-heading">
+            <h2 id="quote-heading">Daily Quote</h2>
+
+            <div id="quote-display" class="loading"
+                 role="status" aria-live="polite">
+                Loading quotes...
+            </div>
+
+            <button type="button" id="new-quote" disabled>
+                New Quote
+            </button>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
