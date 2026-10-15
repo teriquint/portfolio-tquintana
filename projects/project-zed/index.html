@@ -2,84 +2,376 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
 
-	<meta name="description" content="Task Tracker helps users organize projects, tasks, and deadlines.">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
 
-	<title>Task Tracker</title>
+    <meta
+        name="description"
+        content="Task Tracker helps users organize projects, tasks, and deadlines."
+    >
 
-	<link rel="stylesheet" href="css/styles.css">
+    <title>Task Tracker</title>
+
+    <link
+        rel="stylesheet"
+        href="css/styles.css"
+    >
 </head>
 
 <body>
-	<main>
-		<header>
-			<h1>Task Tracker</h1>
-			<p>Keep track of your projects, tasks, and deadlines in one place.</p>
-		</header>
 
-		<section aria-labelledby="add-project-heading">
-			<h2 id="add-project-heading">Add a Project</h2>
+    <main class="app-shell">
 
-			<form id="project-form">
-				<div>
-					<label for="new-project-name">Project Name</label>
-					<input type="text" id="new-project-name" name="new-project-name" required>
-				</div>
+        <header class="app-header">
 
-				<div>
-					<label for="new-project-due-date">Project Due Date</label>
-					<input type="date" id="new-project-due-date" name="new-project-due-date" required>
-				</div>
+            <div>
+                <p class="eyebrow">
+                    TASK TRACKER
+                </p>
 
-				<button type="submit">Add Project</button>
-			</form>
-		</section>
+                <h1>
+                    Plan your work.<br>
+                    Keep moving forward.
+                </h1>
 
-		<section aria-labelledby="add-task-heading">
-			<h2 id="add-task-heading">Add a Task</h2>
+                <p class="header-text">
+                    Organize projects, tasks, and deadlines
+                    in one simple workspace.
+                </p>
+            </div>
 
-			<form id="task-form">
-				<div>
-					<label for="project-select">Project</label>
-					<select id="project-select" name="project-select" required>
-						<option value="">Choose a project</option>
-					</select>
-				</div>
+            <div
+                class="header-mark"
+                aria-hidden="true"
+            >
+                ✓
+            </div>
 
-				<div>
-					<label for="task-name">Task Name</label>
-					<input type="text" id="task-name" name="task-name" required>
-				</div>
-				<div>
-					<label for="task-details">Task Details</label>
+        </header>
 
-					<textarea id="task-details" name="task-details" rows="4"
-						placeholder="What needs to be done for this task?"></textarea>
-				</div>
 
-				<div>
-					<label for="due-date">Task Due Date</label>
-					<input type="date" id="due-date" name="due-date" required>
-				</div>
+        <section
+            class="dashboard-filters"
+            aria-label="Task tracker filters"
+        >
 
-				<button type="submit">Add Task</button>
-			</form>
-		</section>
+            <div class="summary-strip">
 
-		<section aria-labelledby="projects-heading">
-			<h2 id="projects-heading">My Projects</h2>
+                <button
+                    class="summary-card active-summary"
+                    type="button"
+                    data-filter="active"
+                >
+                    <span
+                        class="summary-number"
+                        id="projects-count"
+                    >
+                        0
+                    </span>
 
-			<p id="empty-message">
-				No projects yet. Add your first project above.
-			</p>
+                    <span class="summary-label">
+                        Active Projects
+                    </span>
 
-			<div id="task-list"></div>
-		</section>
-	</main>
+                    <span class="summary-hint">
+                        View active work
+                    </span>
+                </button>
 
-	<script src="js/app.js" defer></script>
+
+                <button
+                    class="summary-card overdue-summary"
+                    type="button"
+                    data-filter="overdue"
+                >
+                    <span
+                        class="summary-number overdue-number"
+                        id="overdue-count"
+                    >
+                        0
+                    </span>
+
+                    <span class="summary-label">
+                        Past Due
+                    </span>
+
+                    <span class="summary-hint">
+                        Needs attention
+                    </span>
+                </button>
+
+
+                <button
+                    class="summary-card today-summary"
+                    type="button"
+                    data-filter="today"
+                >
+                    <span
+                        class="summary-number today-number"
+                        id="today-count"
+                    >
+                        0
+                    </span>
+
+                    <span class="summary-label">
+                        Due Today
+                    </span>
+
+                    <span class="summary-hint">
+                        Today's priorities
+                    </span>
+                </button>
+
+
+                <button
+                    class="summary-card completed-summary"
+                    type="button"
+                    data-filter="completed"
+                >
+                    <span
+                        class="summary-number completed-number"
+                        id="completed-count"
+                    >
+                        0
+                    </span>
+
+                    <span class="summary-label">
+                        Completed
+                    </span>
+
+                    <span class="summary-hint">
+                        See finished tasks
+                    </span>
+                </button>
+
+            </div>
+
+
+            <button
+                class="all-tasks-button"
+                type="button"
+                data-filter="all"
+            >
+                All Tasks
+            </button>
+
+        </section>
+
+
+        <section class="workspace">
+
+            <div class="workspace-section">
+
+                <p class="section-label">
+                    START A PROJECT
+                </p>
+
+                <h2>
+                    Create a Project
+                </h2>
+
+                <p class="section-description">
+                    Give your project a name and deadline.
+                </p>
+
+
+                <form id="project-form">
+
+                    <div>
+                        <label for="new-project-name">
+                            Project Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="new-project-name"
+                            name="new-project-name"
+                            placeholder="Example: Career Report"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="new-project-due-date">
+                            Project Due Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="new-project-due-date"
+                            name="new-project-due-date"
+                            required
+                        >
+                    </div>
+
+
+                    <button type="submit">
+                        Add Project
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <div
+                class="workspace-divider"
+                aria-hidden="true"
+            ></div>
+
+
+            <div class="workspace-section">
+
+                <p class="section-label">
+                    NEXT STEP
+                </p>
+
+                <h2>
+                    Add a Task
+                </h2>
+
+                <p class="section-description">
+                    Add the next step to one of your projects.
+                </p>
+
+
+                <form id="task-form">
+
+                    <div>
+                        <label for="project-select">
+                            Choose Project
+                        </label>
+
+                        <select
+                            id="project-select"
+                            name="project-select"
+                            required
+                        >
+                            <option value="">
+                                Choose a project
+                            </option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label for="task-name">
+                            Task Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="task-name"
+                            name="task-name"
+                            placeholder="What needs to be done?"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="task-details">
+                            Task Details
+                        </label>
+
+                        <textarea
+                            id="task-details"
+                            name="task-details"
+                            rows="3"
+                            placeholder="Add optional details..."
+                        ></textarea>
+                    </div>
+
+
+                    <div>
+                        <label for="due-date">
+                            Task Due Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="due-date"
+                            name="due-date"
+                            required
+                        >
+                    </div>
+
+
+                    <button type="submit">
+                        Add Task
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <section
+            class="projects-area"
+            id="projects-area"
+            aria-labelledby="projects-heading"
+        >
+
+            <div class="projects-heading">
+
+                <div>
+                    <p class="section-label">
+                        CURRENT WORK
+                    </p>
+
+                    <h2 id="projects-heading">
+                        My Projects
+                    </h2>
+                </div>
+
+                <p class="projects-message">
+                    One step at a time.
+                </p>
+
+            </div>
+
+
+            <p
+                id="filter-message"
+                aria-live="polite"
+                hidden
+            ></p>
+
+
+            <p id="empty-message">
+                Your workspace is ready.
+                Add your first project above.
+            </p>
+
+
+            <div id="task-list"></div>
+
+
+            <button
+                class="all-tasks-button bottom-all-tasks-button"
+                type="button"
+                data-filter="all"
+            >
+                All Tasks
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script
+        src="js/app.js"
+        defer
+    ></script>
+
 </body>
 
 </html>
