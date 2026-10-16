@@ -141,13 +141,13 @@ body {
 }
 
 
-/* Dark mode keeps the photo */
+/* Dark mode keeps the photo visible */
 
 body.theme-dark {
     background-image:
         linear-gradient(
-            rgba(9, 18, 29, 0.58),
-            rgba(16, 24, 38, 0.72)
+            rgba(9, 18, 29, 0.18),
+            rgba(16, 24, 38, 0.28)
         ),
         url("../images/weather-background.png");
 }
@@ -217,13 +217,12 @@ body.theme-dark {
         blur(7px);
 }
 
-
 body.theme-dark .dashboard-shell {
     background-color:
-        rgba(12, 22, 34, 0.4);
+        rgba(12, 22, 34, 0.28);
 
     border-color:
-        rgba(255, 255, 255, 0.08);
+        rgba(255, 255, 255, 0.1);
 }
 
 
@@ -263,12 +262,10 @@ body.theme-dark .dashboard-shell {
         var(--shadow-medium);
 }
 
-
 .header-text {
     max-width:
         670px;
 }
-
 
 .eyebrow {
     margin-bottom:
@@ -286,7 +283,6 @@ body.theme-dark .dashboard-shell {
     letter-spacing:
         0.16rem;
 }
-
 
 .dashboard-header h1 {
     margin-bottom:
@@ -309,7 +305,6 @@ body.theme-dark .dashboard-shell {
         1.15;
 }
 
-
 .header-subtitle {
     max-width:
         560px;
@@ -323,24 +318,21 @@ body.theme-dark .dashboard-shell {
 
 body.theme-dark .dashboard-header {
     background-color:
-        rgba(28, 41, 57, 0.96);
+        rgba(28, 41, 57, 0.94);
 
     border-color:
-        rgba(255, 255, 255, 0.08);
+        rgba(255, 255, 255, 0.1);
 }
-
 
 body.theme-dark .dashboard-header h1 {
     color:
         #f7fafc;
 }
 
-
 body.theme-dark .header-subtitle {
     color:
         #bdc9d4;
 }
-
 
 body.theme-dark .eyebrow {
     color:
@@ -390,7 +382,6 @@ body.theme-dark .eyebrow {
         box-shadow 0.2s ease;
 }
 
-
 .theme-toggle:hover {
     color:
         #ffffff;
@@ -405,7 +396,6 @@ body.theme-dark .eyebrow {
         0 9px 20px
         rgba(55, 129, 165, 0.25);
 }
-
 
 body.theme-dark .theme-toggle {
     color:
@@ -475,7 +465,6 @@ main {
         box-shadow 0.2s ease;
 }
 
-
 .widget:hover {
     transform:
         translateY(-4px);
@@ -484,12 +473,10 @@ main {
         var(--shadow-large);
 }
 
-
 .quote-widget {
     animation-delay:
         0.08s;
 }
-
 
 @keyframes fadeIn {
 
@@ -529,7 +516,6 @@ main {
         1.5rem;
 }
 
-
 .widget-label {
     margin-bottom:
         0.25rem;
@@ -546,7 +532,6 @@ main {
     letter-spacing:
         0.14rem;
 }
-
 
 .widget h2 {
     color:
@@ -573,13 +558,12 @@ main {
         );
 }
 
-
 body.theme-dark .weather-widget {
     background:
         linear-gradient(
             145deg,
-            rgba(36, 55, 75, 0.96),
-            rgba(25, 38, 54, 0.96)
+            rgba(36, 55, 75, 0.92),
+            rgba(25, 38, 54, 0.92)
         );
 }
 
@@ -631,14 +615,12 @@ body.theme-dark .weather-widget {
         1rem;
 }
 
-
 .weather-current {
     display: grid;
 
     gap:
         0.3rem;
 }
-
 
 .weather-icon {
     margin-bottom:
@@ -650,7 +632,6 @@ body.theme-dark .weather-widget {
     line-height:
         1;
 }
-
 
 .weather-temp {
     margin:
@@ -673,7 +654,6 @@ body.theme-dark .weather-widget {
         1;
 }
 
-
 .weather-location {
     margin-top:
         0.7rem;
@@ -684,7 +664,6 @@ body.theme-dark .weather-widget {
     font-weight:
         700;
 }
-
 
 .weather-condition {
     margin-bottom:
@@ -697,14 +676,13 @@ body.theme-dark .weather-widget {
         1.05rem;
 }
 
-
 .weather-current p {
     margin:
         0.2rem 0;
 }
 
 
-/* Humidity and wind boxes */
+/* Humidity and wind */
 
 .weather-current p:nth-last-child(-n + 2) {
     margin-top:
@@ -723,7 +701,6 @@ body.theme-dark .weather-widget {
     border-radius:
         var(--radius-small);
 }
-
 
 body.theme-dark
 .weather-current p:nth-last-child(-n + 2) {
@@ -753,7 +730,6 @@ body.theme-dark
         );
 }
 
-
 .quote-decoration {
     color:
         var(--sky-blue-dark);
@@ -771,7 +747,6 @@ body.theme-dark
     opacity:
         0.3;
 }
-
 
 #quote-display {
     flex: 1;
@@ -800,7 +775,6 @@ body.theme-dark
         var(--shadow-small);
 }
 
-
 #quote-display p:first-child {
     font-family:
         var(--font-heading);
@@ -811,7 +785,6 @@ body.theme-dark
     line-height:
         1.7;
 }
-
 
 #quote-display p:last-child {
     margin-top:
@@ -866,7 +839,6 @@ body.theme-dark
         transform 0.2s ease;
 }
 
-
 .quote-button:hover:not(:disabled) {
     color:
         #ffffff;
@@ -877,7 +849,6 @@ body.theme-dark
     transform:
         translateY(-1px);
 }
-
 
 .quote-button:disabled {
     opacity:
@@ -896,7 +867,6 @@ body.theme-dark
     color:
         var(--muted);
 }
-
 
 .loading::before {
     content: '';
@@ -927,7 +897,6 @@ body.theme-dark
         spin 0.9s linear infinite;
 }
 
-
 @keyframes spin {
 
     to {
@@ -950,7 +919,6 @@ a:focus-visible {
     outline-offset:
         3px;
 }
-
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1011,7 +979,6 @@ a:focus-visible {
             scroll;
     }
 
-
     .dashboard-shell {
         padding:
             1rem;
@@ -1019,7 +986,6 @@ a:focus-visible {
         border-radius:
             20px;
     }
-
 
     .dashboard-header {
         flex-direction:
@@ -1032,18 +998,15 @@ a:focus-visible {
             1.5rem;
     }
 
-
     .dashboard-header h1 {
         font-size:
             2rem;
     }
 
-
     .theme-toggle {
         width:
             100%;
     }
-
 
     .widget {
         padding:
@@ -1053,12 +1016,10 @@ a:focus-visible {
             20px;
     }
 
-
     .weather-temp {
         font-size:
             3.6rem;
     }
-
 
     .weather-decoration {
         width:
