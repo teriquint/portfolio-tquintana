@@ -25,6 +25,12 @@ const filterMessage =
 const projectsArea =
     document.getElementById("projects-area");
 
+const dashboardFilters =
+    document.querySelector(".dashboard-filters");
+
+const exportButton =
+    document.getElementById("export-csv");
+
 
 const projectsCount =
     document.getElementById("projects-count");
@@ -39,9 +45,9 @@ const completedCount =
     document.getElementById("completed-count");
 
 
-const summaryButtons =
+const filterButtons =
     document.querySelectorAll(
-        ".summary-card, .all-tasks-button"
+        ".summary-card, .all-tasks-button, .archive-projects-button"
     );
 
 
@@ -68,23 +74,23 @@ function addProject(event) {
     }
 
 
-    let projectExists = false;
+    const projectExists =
+        projects.some(function(project) {
 
+            return (
+                project.projectName.toLowerCase() ===
+                projectName.toLowerCase()
+            );
 
-    projects.forEach(function(project) {
-
-        if (
-            project.projectName.toLowerCase() ===
-            projectName.toLowerCase()
-        ) {
-            projectExists = true;
-        }
-
-    });
+        });
 
 
     if (projectExists) {
-        alert("That project already exists.");
+
+        alert(
+            "That project already exists. Check your current or archived projects."
+        );
+
         return;
     }
 
@@ -93,6 +99,7 @@ function addProject(event) {
         projectName: projectName,
         projectDueDate: projectDueDate,
         completed: false,
+        archived: false,
         notes: ""
     };
 
@@ -169,6 +176,7 @@ function addTask(event) {
 
 
 function formatDate(dueDate) {
+
     const parts =
         dueDate.split("-");
 
@@ -194,6 +202,7 @@ function formatDate(dueDate) {
 
 
 function getMonthYear(dueDate) {
+
     const parts =
         dueDate.split("-");
 
@@ -218,6 +227,7 @@ function getMonthYear(dueDate) {
 
 
 function getDeadlineStatus(dueDate) {
+
     const parts =
         dueDate.split("-");
 
@@ -263,17 +273,23 @@ function getDeadlineStatus(dueDate) {
 function getTaskMessage(status) {
 
     if (status === "Past Due") {
+
         return "Let's revisit this and see what needs to happen next.";
+
     }
 
 
     if (status === "Due Today") {
+
         return "This one needs your attention today. You've got this!";
+
     }
 
 
     if (status === "Completed") {
+
         return "Yay! Nice work. This one is done!";
+
     }
 
 
@@ -303,6 +319,20 @@ function getTaskPriority(task) {
 
 
 
+function getProjectForTask(task) {
+
+    return projects.find(function(project) {
+
+        return (
+            project.projectName ===
+            task.projectName
+        );
+
+    });
+}
+
+
+
 function displayProjectOptions() {
 
     projectSelect.innerHTML =
@@ -311,7 +341,10 @@ function displayProjectOptions() {
 
     projects.forEach(function(project) {
 
-        if (!project.completed) {
+        if (
+            !project.completed &&
+            !project.archived
+        ) {
 
             projectSelect.innerHTML += `
                 <option value="${project.projectName}">
@@ -326,17 +359,31 @@ function displayProjectOptions() {
 
 
 
+/* DASHBOARD COUNTS */
+
 function updateSummary() {
+
     let activeProjects = 0;
     let overdue = 0;
     let today = 0;
-    let completed = 0;
+    let completedProjects = 0;
 
 
     projects.forEach(function(project) {
 
-        if (!project.completed) {
+        if (project.archived) {
+            return;
+        }
+
+
+        if (project.completed) {
+
+            completedProjects++;
+
+        } else {
+
             activeProjects++;
+
         }
 
     });
@@ -344,8 +391,16 @@ function updateSummary() {
 
     tasks.forEach(function(task) {
 
-        if (task.completed) {
-            completed++;
+        const project =
+            getProjectForTask(task);
+
+
+        if (
+            !project ||
+            project.archived ||
+            project.completed ||
+            task.completed
+        ) {
             return;
         }
 
@@ -376,7 +431,7 @@ function updateSummary() {
         today;
 
     completedCount.textContent =
-        completed;
+        completedProjects;
 }
 
 
@@ -407,13 +462,6 @@ function taskMatchesFilter(task) {
     }
 
 
-    if (currentFilter === "completed") {
-
-        return task.completed;
-
-    }
-
-
     return true;
 }
 
@@ -421,32 +469,23 @@ function taskMatchesFilter(task) {
 
 function updateFilterButtons() {
 
-    summaryButtons.forEach(function(button) {
+    filterButtons.forEach(function(button) {
 
         const isSelected =
             button.dataset.filter ===
             currentFilter;
 
 
-        if (isSelected) {
+        button.classList.toggle(
+            "selected",
+            isSelected
+        );
 
-            button.classList.add("selected");
 
-            button.setAttribute(
-                "aria-pressed",
-                "true"
-            );
-
-        } else {
-
-            button.classList.remove("selected");
-
-            button.setAttribute(
-                "aria-pressed",
-                "false"
-            );
-
-        }
+        button.setAttribute(
+            "aria-pressed",
+            isSelected ? "true" : "false"
+        );
 
     });
 }
@@ -493,7 +532,15 @@ function updateFilterMessage() {
     if (currentFilter === "completed") {
 
         filterMessage.textContent =
-            "Showing completed tasks.";
+            "Showing completed projects.";
+
+    }
+
+
+    if (currentFilter === "archived") {
+
+        filterMessage.textContent =
+            "Showing archived projects. Restore a project to return it to your workspace.";
 
     }
 }
@@ -509,13 +556,26 @@ function filterTasks(filter) {
     displayTasks();
 
 
-    projectsArea.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
+    if (filter === "all") {
+
+        dashboardFilters.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    } else {
+
+        projectsArea.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
 }
 
 
+
+/* COMPLETE TASK */
 
 function toggleComplete(index) {
 
@@ -531,6 +591,8 @@ function toggleComplete(index) {
 
 
 
+/* COMPLETE PROJECT */
+
 function toggleProjectComplete(index) {
 
     projects[index].completed =
@@ -545,6 +607,222 @@ function toggleProjectComplete(index) {
 }
 
 
+
+/* EDIT PROJECT */
+
+function toggleProjectEdit(index) {
+
+    const panel =
+        document.getElementById(
+            `project-edit-${index}`
+        );
+
+
+    panel.hidden =
+        !panel.hidden;
+}
+
+
+
+function saveProjectEdit(index) {
+
+    const oldName =
+        projects[index].projectName;
+
+
+    const newName =
+        document
+            .getElementById(
+                `edit-project-name-${index}`
+            )
+            .value
+            .trim();
+
+
+    const newDate =
+        document
+            .getElementById(
+                `edit-project-date-${index}`
+            )
+            .value;
+
+
+    if (!newName || !newDate) {
+        return;
+    }
+
+
+    const duplicate =
+        projects.some(
+            function(project, projectIndex) {
+
+                return (
+                    projectIndex !== index &&
+                    project.projectName.toLowerCase() ===
+                    newName.toLowerCase()
+                );
+
+            }
+        );
+
+
+    if (duplicate) {
+
+        alert(
+            "Another project already has that name."
+        );
+
+        return;
+    }
+
+
+    projects[index].projectName =
+        newName;
+
+
+    projects[index].projectDueDate =
+        newDate;
+
+
+    tasks.forEach(function(task) {
+
+        if (task.projectName === oldName) {
+
+            task.projectName =
+                newName;
+
+        }
+
+    });
+
+
+    saveProjects();
+    saveTasks();
+
+
+    displayProjectOptions();
+    displayTasks();
+}
+
+
+
+/* EDIT TASK */
+
+function toggleTaskEdit(index) {
+
+    const panel =
+        document.getElementById(
+            `task-edit-${index}`
+        );
+
+
+    panel.hidden =
+        !panel.hidden;
+}
+
+
+
+function saveTaskEdit(index) {
+
+    const newName =
+        document
+            .getElementById(
+                `edit-task-name-${index}`
+            )
+            .value
+            .trim();
+
+
+    const newDetails =
+        document
+            .getElementById(
+                `edit-task-details-${index}`
+            )
+            .value
+            .trim();
+
+
+    const newDate =
+        document
+            .getElementById(
+                `edit-task-date-${index}`
+            )
+            .value;
+
+
+    if (!newName || !newDate) {
+        return;
+    }
+
+
+    tasks[index].taskName =
+        newName;
+
+
+    tasks[index].details =
+        newDetails;
+
+
+    tasks[index].dueDate =
+        newDate;
+
+
+    saveTasks();
+
+
+    displayTasks();
+}
+
+
+
+/* ARCHIVE */
+
+function archiveProject(index) {
+
+    const project =
+        projects[index];
+
+
+    const shouldArchive =
+        confirm(
+            `Archive "${project.projectName}"? You can restore it later from Archived Projects.`
+        );
+
+
+    if (!shouldArchive) {
+        return;
+    }
+
+
+    projects[index].archived =
+        true;
+
+
+    saveProjects();
+
+
+    displayProjectOptions();
+    displayTasks();
+}
+
+
+
+function restoreProject(index) {
+
+    projects[index].archived =
+        false;
+
+
+    saveProjects();
+
+
+    displayProjectOptions();
+    displayTasks();
+}
+
+
+
+/* TASK DETAILS */
 
 function toggleTaskDetails(index) {
 
@@ -578,6 +856,8 @@ function toggleTaskDetails(index) {
 }
 
 
+
+/* PROJECT NOTES */
 
 function toggleProjectNotes(index) {
 
@@ -627,10 +907,14 @@ function saveProjectNotes(index) {
     saveProjects();
 
 
-    alert("Project notes saved.");
+    alert(
+        "Project notes saved."
+    );
 }
 
 
+
+/* DELETE */
 
 function deleteTask(index) {
 
@@ -644,22 +928,26 @@ function deleteTask(index) {
         );
 
 
-    if (shouldDelete) {
-
-        tasks.splice(
-            index,
-            1
-        );
-
-
-        saveTasks();
-
-
-        displayTasks();
+    if (!shouldDelete) {
+        return;
     }
+
+
+    tasks.splice(
+        index,
+        1
+    );
+
+
+    saveTasks();
+
+
+    displayTasks();
 }
 
 
+
+/* DISPLAY */
 
 function displayTasks() {
 
@@ -703,7 +991,31 @@ function displayTasks() {
     ) {
 
 
-        let projectTasks =
+        /*
+            ARCHIVED PROJECTS ONLY SHOW
+            IN ARCHIVED PROJECTS VIEW
+        */
+
+        if (currentFilter === "archived") {
+
+            if (!project.archived) {
+                return;
+            }
+
+        } else {
+
+            if (project.archived) {
+                return;
+            }
+
+        }
+
+
+        /*
+            GET ALL TASKS FOR THIS PROJECT
+        */
+
+        const allProjectTasks =
             tasks
                 .map(function(task, index) {
 
@@ -723,10 +1035,41 @@ function displayTasks() {
                 });
 
 
+        let projectTasks =
+            [...allProjectTasks];
+
+
+        /*
+            WHEN A PROJECT IS COMPLETED,
+            HIDE TASKS THAT ARE ALREADY
+            MARKED COMPLETED.
+
+            REOPENING THE PROJECT MAKES
+            THEM VISIBLE AGAIN.
+        */
+
+        if (project.completed) {
+
+            projectTasks =
+                projectTasks.filter(
+                    function(item) {
+
+                        return !item.task.completed;
+
+                    }
+                );
+
+        }
+
+
+        /*
+            PAST DUE AND TODAY FILTER
+            INDIVIDUAL TASKS
+        */
+
         if (
             currentFilter === "overdue" ||
-            currentFilter === "today" ||
-            currentFilter === "completed"
+            currentFilter === "today"
         ) {
 
             projectTasks =
@@ -739,8 +1082,13 @@ function displayTasks() {
 
                     }
                 );
+
         }
 
+
+        /*
+            DECIDE WHICH PROJECTS SHOW
+        */
 
         let showProject = true;
 
@@ -753,13 +1101,21 @@ function displayTasks() {
         }
 
 
+        if (currentFilter === "completed") {
+
+            showProject =
+                project.completed;
+
+        }
+
+
         if (
             currentFilter === "overdue" ||
-            currentFilter === "today" ||
-            currentFilter === "completed"
+            currentFilter === "today"
         ) {
 
             showProject =
+                !project.completed &&
                 projectTasks.length > 0;
 
         }
@@ -833,6 +1189,14 @@ function displayTasks() {
         }
 
 
+        if (project.archived) {
+
+            projectStatus =
+                "Archived";
+
+        }
+
+
         let extraProjectClass = "";
 
 
@@ -844,12 +1208,10 @@ function displayTasks() {
         }
 
 
-        if (
-            currentFilter === "completed"
-        ) {
+        if (project.archived) {
 
             extraProjectClass +=
-                " show-completed-tasks";
+                " project-archived";
 
         }
 
@@ -861,81 +1223,183 @@ function displayTasks() {
 
                 <div class="project-heading">
 
-                    <h3>
-                        ${project.projectName}
-                    </h3>
+                    <div class="project-title-area">
 
-                    <p>
-                        <strong>
-                            Project Due:
-                        </strong>
+                        <h3>
+                            ${project.projectName}
+                        </h3>
 
-                        ${formatDate(
-                            project.projectDueDate
-                        )}
-                    </p>
+                        <p class="project-meta">
+                            Project due
+                            ${formatDate(
+                                project.projectDueDate
+                            )}
+                        </p>
 
-                    <p>
-                        <strong>
-                            Status:
-                        </strong>
+                        <span class="project-status">
+                            ${projectStatus}
+                        </span>
 
-                        ${projectStatus}
-                    </p>
+                    </div>
 
-                    <button
-                        type="button"
-                        onclick="toggleProjectComplete(${projectIndex})"
-                    >
-                        ${project.completed
-                            ? "Reopen Project"
-                            : "Complete Project"}
-                    </button>
+
+                    <div class="project-actions">
         `;
+
+
+        if (currentFilter === "archived") {
+
+            projectHTML += `
+                        <button
+                            type="button"
+                            onclick="restoreProject(${projectIndex})"
+                        >
+                            Restore Project
+                        </button>
+            `;
+
+        } else {
+
+            projectHTML += `
+                        <button
+                            class="edit-button"
+                            type="button"
+                            onclick="toggleProjectEdit(${projectIndex})"
+                        >
+                            Edit Project
+                        </button>
+
+
+                        <button
+                            type="button"
+                            onclick="toggleProjectComplete(${projectIndex})"
+                        >
+                            ${project.completed
+                                ? "Reopen Project"
+                                : "Complete Project"}
+                        </button>
+
+
+                        <button
+                            class="archive-project-button"
+                            type="button"
+                            onclick="archiveProject(${projectIndex})"
+                        >
+                            Archive Project
+                        </button>
+            `;
+
+        }
 
 
         if (project.completed) {
 
             projectHTML += `
-                <button
-                    type="button"
-                    id="project-notes-button-${projectIndex}"
-                    onclick="toggleProjectNotes(${projectIndex})"
-                >
-                    Notes
-                </button>
+                        <button
+                            type="button"
+                            id="project-notes-button-${projectIndex}"
+                            onclick="toggleProjectNotes(${projectIndex})"
+                        >
+                            Notes
+                        </button>
+            `;
+
+        }
 
 
-                <div
-                    id="project-notes-${projectIndex}"
-                    class="project-notes"
-                    hidden
-                >
+        projectHTML += `
+                    </div>
+        `;
 
-                    <label
-                        for="project-notes-input-${projectIndex}"
+
+        if (currentFilter !== "archived") {
+
+            projectHTML += `
+                    <div
+                        class="edit-panel project-edit-panel"
+                        id="project-edit-${projectIndex}"
+                        hidden
                     >
-                        Project Notes
-                    </label>
+
+                        <label
+                            for="edit-project-name-${projectIndex}"
+                        >
+                            Project Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="edit-project-name-${projectIndex}"
+                            value="${project.projectName}"
+                        >
 
 
-                    <textarea
-                        id="project-notes-input-${projectIndex}"
-                        rows="4"
-                        placeholder="Add optional notes about this completed project..."
-                    >${project.notes
-                        ? project.notes
-                        : ""}</textarea>
+                        <label
+                            for="edit-project-date-${projectIndex}"
+                        >
+                            Project Due Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="edit-project-date-${projectIndex}"
+                            value="${project.projectDueDate}"
+                        >
 
 
-                    <button
-                        type="button"
-                        onclick="saveProjectNotes(${projectIndex})"
+                        <div class="edit-actions">
+
+                            <button
+                                type="button"
+                                onclick="saveProjectEdit(${projectIndex})"
+                            >
+                                Save Changes
+                            </button>
+
+                            <button
+                                class="cancel-edit-button"
+                                type="button"
+                                onclick="toggleProjectEdit(${projectIndex})"
+                            >
+                                Cancel
+                            </button>
+
+                        </div>
+
+                    </div>
+            `;
+
+        }
+
+
+        if (project.completed) {
+
+            projectHTML += `
+                    <div
+                        id="project-notes-${projectIndex}"
+                        class="project-notes"
+                        hidden
                     >
-                        Save Notes
-                    </button>
 
-                </div>
+                        <label
+                            for="project-notes-input-${projectIndex}"
+                        >
+                            Project Notes
+                        </label>
+
+                        <textarea
+                            id="project-notes-input-${projectIndex}"
+                            rows="4"
+                        >${project.notes || ""}</textarea>
+
+                        <button
+                            type="button"
+                            onclick="saveProjectNotes(${projectIndex})"
+                        >
+                            Save Notes
+                        </button>
+
+                    </div>
             `;
 
         }
@@ -944,14 +1408,25 @@ function displayTasks() {
         projectHTML += `
                 </div>
 
+
                 <article class="project-card">
 
                     <div class="project-tasks">
         `;
 
 
-        const projectHasTasks =
+        const projectHasVisibleTasks =
             projectTasks.length > 0;
+
+
+        const hiddenCompletedTasks =
+            allProjectTasks.filter(
+                function(item) {
+
+                    return item.task.completed;
+
+                }
+            ).length;
 
 
         projectTasks.forEach(function(item) {
@@ -1055,6 +1530,19 @@ function displayTasks() {
                     >
                         Details
                     </button>
+            `;
+
+
+            if (currentFilter !== "archived") {
+
+                projectHTML += `
+                    <button
+                        class="edit-button"
+                        type="button"
+                        onclick="toggleTaskEdit(${index})"
+                    >
+                        Edit
+                    </button>
 
 
                     <button
@@ -1068,13 +1556,18 @@ function displayTasks() {
 
 
                     <button
+                        class="delete-button"
                         type="button"
                         onclick="deleteTask(${index})"
                     >
                         Delete
                     </button>
+                `;
+
+            }
 
 
+            projectHTML += `
                     <div
                         id="task-details-${index}"
                         class="task-details"
@@ -1094,19 +1587,107 @@ function displayTasks() {
                         </p>
 
                     </div>
+            `;
 
+
+            if (currentFilter !== "archived") {
+
+                projectHTML += `
+                    <div
+                        class="edit-panel task-edit-panel"
+                        id="task-edit-${index}"
+                        hidden
+                    >
+
+                        <label
+                            for="edit-task-name-${index}"
+                        >
+                            Task Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="edit-task-name-${index}"
+                            value="${task.taskName}"
+                        >
+
+
+                        <label
+                            for="edit-task-details-${index}"
+                        >
+                            Task Details
+                        </label>
+
+                        <textarea
+                            id="edit-task-details-${index}"
+                            rows="3"
+                        >${task.details || ""}</textarea>
+
+
+                        <label
+                            for="edit-task-date-${index}"
+                        >
+                            Task Due Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="edit-task-date-${index}"
+                            value="${task.dueDate}"
+                        >
+
+
+                        <div class="edit-actions">
+
+                            <button
+                                type="button"
+                                onclick="saveTaskEdit(${index})"
+                            >
+                                Save Changes
+                            </button>
+
+                            <button
+                                class="cancel-edit-button"
+                                type="button"
+                                onclick="toggleTaskEdit(${index})"
+                            >
+                                Cancel
+                            </button>
+
+                        </div>
+
+                    </div>
+                `;
+
+            }
+
+
+            projectHTML += `
                 </section>
             `;
 
         });
 
 
-        if (!projectHasTasks) {
+        if (
+            !projectHasVisibleTasks &&
+            project.completed &&
+            hiddenCompletedTasks > 0
+        ) {
+
+            projectHTML += `
+                <p class="completed-project-message">
+                    Completed tasks are hidden while this
+                    project is completed. Reopen the project
+                    to view them again.
+                </p>
+            `;
+
+        } else if (!projectHasVisibleTasks) {
 
             projectHTML += `
                 <p>
-                    No tasks have been added
-                    to this project yet.
+                    No tasks to show for this project.
                 </p>
             `;
 
@@ -1128,21 +1709,241 @@ function displayTasks() {
     });
 
 
-    if (
-        !resultsFound &&
-        currentFilter !== "all"
-    ) {
+    if (!resultsFound) {
 
-        taskList.innerHTML = `
-            <p class="no-filter-results">
-                Nothing in this category right now.
-            </p>
-        `;
+        if (currentFilter === "archived") {
+
+            taskList.innerHTML = `
+                <p class="no-filter-results">
+                    You do not have any archived projects yet.
+                </p>
+            `;
+
+        } else if (currentFilter === "completed") {
+
+            taskList.innerHTML = `
+                <p class="no-filter-results">
+                    You do not have any completed projects yet.
+                </p>
+            `;
+
+        } else if (currentFilter === "all") {
+
+            taskList.innerHTML = `
+                <p class="no-filter-results">
+                    No current projects to show.
+                </p>
+            `;
+
+        } else {
+
+            taskList.innerHTML = `
+                <p class="no-filter-results">
+                    Nothing in this category right now.
+                </p>
+            `;
+
+        }
 
     }
 }
 
 
+
+/* CSV */
+
+function escapeCSV(value) {
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+        value = "";
+    }
+
+
+    const text =
+        String(value)
+            .replace(
+                /"/g,
+                '""'
+            );
+
+
+    return `"${text}"`;
+}
+
+
+
+function exportToCSV() {
+
+    if (projects.length === 0) {
+
+        alert(
+            "There is no project data to export yet."
+        );
+
+        return;
+    }
+
+
+    const rows = [];
+
+
+    rows.push([
+        "Project",
+        "Project Due Date",
+        "Project Status",
+        "Archived",
+        "Project Notes",
+        "Task",
+        "Task Details",
+        "Task Due Date",
+        "Task Status",
+        "Task Completed"
+    ]);
+
+
+    projects.forEach(function(project) {
+
+        const projectTasks =
+            tasks.filter(function(task) {
+
+                return (
+                    task.projectName ===
+                    project.projectName
+                );
+
+            });
+
+
+        let projectStatus =
+            "Active";
+
+
+        if (project.completed) {
+            projectStatus = "Completed";
+        }
+
+
+        if (project.archived) {
+            projectStatus = "Archived";
+        }
+
+
+        if (projectTasks.length === 0) {
+
+            rows.push([
+                project.projectName,
+                project.projectDueDate,
+                projectStatus,
+                project.archived
+                    ? "Yes"
+                    : "No",
+                project.notes || "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ]);
+
+        } else {
+
+            projectTasks.forEach(function(task) {
+
+                let taskStatus =
+                    getDeadlineStatus(
+                        task.dueDate
+                    );
+
+
+                if (task.completed) {
+                    taskStatus = "Completed";
+                }
+
+
+                rows.push([
+                    project.projectName,
+                    project.projectDueDate,
+                    projectStatus,
+                    project.archived
+                        ? "Yes"
+                        : "No",
+                    project.notes || "",
+                    task.taskName,
+                    task.details || "",
+                    task.dueDate,
+                    taskStatus,
+                    task.completed
+                        ? "Yes"
+                        : "No"
+                ]);
+
+            });
+
+        }
+
+    });
+
+
+    const csvText =
+        rows
+            .map(function(row) {
+
+                return row
+                    .map(escapeCSV)
+                    .join(",");
+
+            })
+            .join("\n");
+
+
+    const blob =
+        new Blob(
+            [csvText],
+            {
+                type:
+                    "text/csv;charset=utf-8;"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const link =
+        document.createElement("a");
+
+
+    const today =
+        new Date()
+            .toISOString()
+            .slice(0, 10);
+
+
+    link.href =
+        url;
+
+
+    link.download =
+        `task-tracker-export-${today}.csv`;
+
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+
+    URL.revokeObjectURL(url);
+}
+
+
+
+/* LOCAL STORAGE */
 
 function saveProjects() {
 
@@ -1178,6 +1979,32 @@ function loadProjects() {
 
             projects =
                 JSON.parse(saved);
+
+
+            projects.forEach(function(project) {
+
+                if (
+                    project.archived ===
+                    undefined
+                ) {
+
+                    project.archived =
+                        false;
+
+                }
+
+
+                if (
+                    project.notes ===
+                    undefined
+                ) {
+
+                    project.notes =
+                        "";
+
+                }
+
+            });
 
         } else {
 
@@ -1244,6 +2071,8 @@ function loadTasks() {
 
 
 
+/* EVENTS */
+
 projectForm.addEventListener(
     "submit",
     addProject
@@ -1256,7 +2085,7 @@ taskForm.addEventListener(
 );
 
 
-summaryButtons.forEach(function(button) {
+filterButtons.forEach(function(button) {
 
     button.addEventListener(
         "click",
@@ -1271,6 +2100,15 @@ summaryButtons.forEach(function(button) {
 
 });
 
+
+exportButton.addEventListener(
+    "click",
+    exportToCSV
+);
+
+
+
+/* START */
 
 loadProjects();
 loadTasks();

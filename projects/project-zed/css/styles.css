@@ -8,6 +8,7 @@
 
     --tan: #d6c9ae;
     --taupe: #c7b8a1;
+    --project-neutral: #eee7dc;
 
     --text: #3f3d34;
     --muted: #6f6b5d;
@@ -15,7 +16,10 @@
     --past-due: #efc1cb;
     --past-due-dark: #a94f68;
 
-    --due-today: #ead787;
+    --in-process: #f4dfa0;
+    --in-process-dark: #8a742c;
+
+    --due-today: #e2bf58;
     --due-today-dark: #75631f;
 
     --complete: #c9dfc3;
@@ -78,7 +82,8 @@ body {
         var(--app-cream);
 
     border:
-        1px solid var(--tan);
+        1px solid
+        var(--tan);
 
     border-radius: 18px;
 
@@ -107,7 +112,8 @@ body {
     background-color:
         var(--sage-dark);
 
-    color: var(--white);
+    color:
+        var(--white);
 
     border-radius: 13px;
 }
@@ -188,7 +194,7 @@ body {
 }
 
 
-/* REGULAR BUTTONS */
+/* BUTTONS */
 
 button {
     width: fit-content;
@@ -196,7 +202,8 @@ button {
     padding:
         0.5rem 0.9rem;
 
-    color: var(--white);
+    color:
+        var(--white);
 
     background-color:
         var(--olive);
@@ -233,9 +240,6 @@ button:focus-visible {
     margin-bottom: 2rem;
 }
 
-
-/* FOUR SUMMARY BUTTONS */
-
 .summary-strip {
     display: grid;
 
@@ -261,7 +265,8 @@ button:focus-visible {
 
     text-align: center;
 
-    color: var(--text);
+    color:
+        var(--text);
 
     background-color:
         var(--white);
@@ -272,15 +277,14 @@ button:focus-visible {
 
     border-radius: 10px;
 
-    cursor: pointer;
-
     transition:
         transform 0.15s ease,
         box-shadow 0.15s ease;
 }
 
 .summary-card:hover {
-    color: var(--text);
+    color:
+        var(--text);
 
     background-color:
         #fffdf9;
@@ -310,7 +314,6 @@ button:focus-visible {
         serif;
 
     font-size: 1.9rem;
-
     line-height: 1;
 
     font-weight: bold;
@@ -319,7 +322,8 @@ button:focus-visible {
 .summary-label {
     margin-top: 0.35rem;
 
-    color: var(--text);
+    color:
+        var(--text);
 
     font-size: 0.72rem;
     font-weight: 700;
@@ -328,7 +332,8 @@ button:focus-visible {
 .summary-hint {
     margin-top: 0.15rem;
 
-    color: var(--muted);
+    color:
+        var(--muted);
 
     font-size: 0.62rem;
 
@@ -341,7 +346,7 @@ button:focus-visible {
 .active-summary {
     border-top:
         4px solid
-        var(--olive);
+        var(--in-process);
 }
 
 .overdue-summary {
@@ -378,7 +383,7 @@ button:focus-visible {
 }
 
 
-/* ALL TASKS BUTTON */
+/* ALL TASKS */
 
 .all-tasks-button {
     width: 100%;
@@ -388,7 +393,8 @@ button:focus-visible {
     padding:
         0.72rem 1rem;
 
-    color: var(--white);
+    color:
+        var(--white);
 
     background-color:
         var(--sage-dark);
@@ -403,8 +409,6 @@ button:focus-visible {
     font-weight: 700;
 
     letter-spacing: 0.04rem;
-
-    cursor: pointer;
 }
 
 .all-tasks-button:hover {
@@ -421,11 +425,83 @@ button:focus-visible {
         rgba(101, 125, 90, 0.25);
 }
 
-
-/* BOTTOM ALL TASKS BUTTON */
-
 .bottom-all-tasks-button {
     margin-top: 2rem;
+}
+
+
+/* ARCHIVE */
+
+.archive-projects-button {
+    width: 100%;
+
+    margin-top: 0.55rem;
+
+    padding:
+        0.7rem 1rem;
+
+    color:
+        #5f594f;
+
+    background-color:
+        var(--project-neutral);
+
+    border:
+        1px solid
+        var(--taupe);
+
+    border-radius: 8px;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.archive-projects-button:hover {
+    color:
+        var(--text);
+
+    background-color:
+        #e3dbcf;
+}
+
+.archive-projects-button.selected {
+    box-shadow:
+        0 0 0 3px
+        rgba(151, 139, 122, 0.25);
+}
+
+
+/* EXPORT */
+
+.export-row {
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 0.8rem;
+}
+
+.export-button {
+    color:
+        var(--sage-dark);
+
+    background-color:
+        transparent;
+
+    border:
+        1px solid
+        var(--sage-dark);
+
+    padding:
+        0.45rem 1rem;
+}
+
+.export-button:hover {
+    color:
+        var(--white);
+
+    background-color:
+        var(--sage-dark);
 }
 
 
@@ -462,7 +538,8 @@ button:focus-visible {
 .projects-heading h2 {
     margin: 0;
 
-    color: var(--text);
+    color:
+        var(--text);
 
     font-family:
         Georgia,
@@ -480,7 +557,8 @@ button:focus-visible {
     margin:
         0.2rem 0 1.2rem;
 
-    color: var(--muted);
+    color:
+        var(--muted);
 
     font-size: 0.88rem;
 }
@@ -503,7 +581,8 @@ form div {
 label {
     margin-bottom: 0.3rem;
 
-    color: #585548;
+    color:
+        #585548;
 
     font-size: 0.8rem;
     font-weight: 700;
@@ -517,7 +596,8 @@ select {
     padding:
         0.68rem 0.72rem;
 
-    color: var(--text);
+    color:
+        var(--text);
 
     background-color:
         var(--white);
@@ -566,7 +646,8 @@ textarea {
         2px solid
         var(--sage-dark);
 
-    scroll-margin-top: 1.5rem;
+    scroll-margin-top:
+        1.5rem;
 }
 
 .projects-heading {
@@ -589,7 +670,8 @@ textarea {
 .projects-message {
     margin: 0;
 
-    color: var(--muted);
+    color:
+        var(--muted);
 
     font-family:
         Georgia,
@@ -608,14 +690,15 @@ textarea {
     padding:
         0.75rem 0.9rem;
 
-    color: var(--text);
+    color:
+        var(--text);
 
     background-color:
-        #edf2e9;
+        #f3eee6;
 
     border-left:
         4px solid
-        var(--olive);
+        var(--taupe);
 
     border-radius: 5px;
 
@@ -652,50 +735,220 @@ textarea {
 /* PROJECT */
 
 .project-section {
-    margin-bottom: 2.3rem;
+    margin-bottom: 2.5rem;
 }
 
 .project-heading {
+    display: grid;
+
+    grid-template-columns:
+        1fr auto;
+
+    gap:
+        0.4rem 1rem;
+
+    align-items: center;
+
     padding:
-        1rem 1.1rem;
+        1rem 1.2rem;
 
     margin-bottom: 1rem;
 
     background-color:
-        #edf2e9;
+        var(--project-neutral);
+
+    border:
+        1px solid
+        var(--tan);
 
     border-left:
         5px solid
-        var(--olive);
+        var(--taupe);
 
     border-radius: 7px;
+
+    box-shadow:
+        0 3px 8px
+        rgba(63, 61, 52, 0.06);
+}
+
+.project-title-area {
+    min-width: 0;
 }
 
 .project-heading h3 {
-    margin:
-        0 0 0.2rem;
+    margin: 0;
 
-    color: var(--text);
+    color:
+        var(--text);
 
     font-family:
         Georgia,
         serif;
 
-    font-size: 1.35rem;
+    font-size: 1.45rem;
 
     font-weight: normal;
 }
 
-.project-heading p {
+.project-meta {
     margin:
-        0.1rem 0;
+        0.2rem 0 0;
 
-    font-size: 0.84rem;
+    color:
+        var(--muted);
+
+    font-size: 0.8rem;
 }
 
-.project-heading button {
-    margin-top: 0.6rem;
-    margin-right: 0.25rem;
+.project-status {
+    display: inline-block;
+
+    width: fit-content;
+
+    margin-top: 0.45rem;
+
+    padding:
+        0.18rem 0.5rem;
+
+    color:
+        #625d53;
+
+    background-color:
+        var(--app-cream);
+
+    border:
+        1px solid
+        var(--taupe);
+
+    border-radius: 20px;
+
+    font-size: 0.68rem;
+    font-weight: 700;
+}
+
+.project-actions {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 0.4rem;
+
+    flex-wrap: wrap;
+}
+
+.project-actions button {
+    margin: 0;
+}
+
+
+/* EDIT */
+
+.edit-button {
+    color:
+        var(--olive-dark);
+
+    background-color:
+        var(--app-cream);
+
+    border:
+        1px solid
+        var(--olive);
+}
+
+.edit-button:hover {
+    color:
+        var(--white);
+
+    background-color:
+        var(--olive-dark);
+}
+
+.edit-panel {
+    margin-top: 0.8rem;
+
+    padding: 0.9rem;
+
+    background-color:
+        var(--app-cream);
+
+    border:
+        1px solid
+        var(--tan);
+
+    border-left:
+        4px solid
+        var(--olive);
+
+    border-radius: 6px;
+}
+
+.project-edit-panel {
+    grid-column:
+        1 / -1;
+}
+
+.edit-panel label {
+    margin-top: 0.45rem;
+}
+
+.edit-panel input,
+.edit-panel textarea {
+    margin-bottom: 0.45rem;
+}
+
+.edit-actions {
+    display: flex;
+
+    flex-direction: row;
+
+    gap: 0.4rem;
+
+    margin-top: 0.3rem;
+}
+
+.cancel-edit-button {
+    color:
+        #625d53;
+
+    background-color:
+        transparent;
+
+    border:
+        1px solid
+        var(--taupe);
+}
+
+.cancel-edit-button:hover {
+    color:
+        var(--white);
+
+    background-color:
+        #766d61;
+}
+
+
+/* ARCHIVE BUTTON */
+
+.archive-project-button {
+    color:
+        #625d53;
+
+    background-color:
+        transparent;
+
+    border:
+        1px solid
+        var(--taupe);
+}
+
+.archive-project-button:hover {
+    color:
+        var(--white);
+
+    background-color:
+        #766d61;
 }
 
 
@@ -710,16 +963,73 @@ textarea {
         var(--tan);
 
     border-left:
-        5px solid
+        6px solid
         var(--complete-dark);
+
+    border-radius: 7px;
 }
 
-.project-completed .project-card {
-    display: none;
+.project-completed .project-status {
+    color:
+        var(--complete-dark);
+
+    background-color:
+        var(--app-cream);
+
+    border-color:
+        var(--complete);
 }
 
-.project-completed.show-completed-tasks .project-card {
-    display: block;
+
+/* COMPLETED PROJECT MESSAGE */
+
+.completed-project-message {
+    margin:
+        0.4rem 0 0;
+
+    padding:
+        0.7rem 0.9rem;
+
+    color:
+        var(--complete-dark);
+
+    background-color:
+        var(--app-cream);
+
+    border-left:
+        4px solid
+        var(--complete-dark);
+
+    border-radius: 5px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-style: italic;
+}
+
+
+/* ARCHIVED PROJECT */
+
+.project-archived .project-heading {
+    background-color:
+        #e7e0d5;
+
+    border-left:
+        5px solid
+        #887f72;
+}
+
+.project-archived .project-status {
+    color:
+        #5f594f;
+
+    background-color:
+        var(--app-cream);
+
+    border-color:
+        var(--taupe);
 }
 
 
@@ -760,7 +1070,8 @@ textarea {
     margin:
         0 0 0.4rem;
 
-    color: var(--text);
+    color:
+        var(--text);
 
     font-family:
         Georgia,
@@ -783,11 +1094,11 @@ textarea {
 
 .task-in-process {
     background-color:
-        #eef5ea;
+        #fff8d9;
 
     border-top:
         5px solid
-        var(--olive);
+        var(--in-process-dark);
 }
 
 
@@ -807,7 +1118,7 @@ textarea {
 
 .task-today {
     background-color:
-        #fff4c7;
+        #fff0b8;
 
     border-top:
         5px solid
@@ -815,7 +1126,7 @@ textarea {
 }
 
 
-/* COMPLETED */
+/* COMPLETED TASK */
 
 .task-completed {
     background-color:
@@ -831,7 +1142,7 @@ textarea {
 }
 
 
-/* STATUS */
+/* TASK STATUS */
 
 .task-status {
     display: inline-block;
@@ -841,12 +1152,6 @@ textarea {
 
     padding:
         0.22rem 0.5rem;
-
-    color:
-        var(--sage-dark);
-
-    background-color:
-        rgba(255, 255, 255, 0.75);
 
     border:
         1px solid
@@ -861,6 +1166,17 @@ textarea {
 
     letter-spacing:
         0.04rem;
+}
+
+.task-in-process .task-status {
+    color:
+        var(--in-process-dark);
+
+    background-color:
+        #fff3bd;
+
+    border-color:
+        var(--in-process);
 }
 
 .task-overdue .task-status {
@@ -879,10 +1195,10 @@ textarea {
         var(--due-today-dark);
 
     background-color:
-        #f7e8a9;
+        #f7e09a;
 
     border-color:
-        #d8c167;
+        var(--due-today);
 }
 
 .task-completed .task-status {
@@ -897,7 +1213,7 @@ textarea {
 }
 
 
-/* ENCOURAGEMENT */
+/* MESSAGES */
 
 .task-message {
     margin:
@@ -906,16 +1222,6 @@ textarea {
     padding:
         0.55rem 0.65rem;
 
-    color:
-        #525d49;
-
-    background-color:
-        rgba(241, 246, 236, 0.9);
-
-    border-left:
-        3px solid
-        var(--sage);
-
     font-family:
         Georgia,
         serif;
@@ -923,11 +1229,24 @@ textarea {
     font-style: italic;
 }
 
+.task-in-process .task-message {
+    color:
+        #66591f;
+
+    background-color:
+        #fffbed;
+
+    border-left:
+        3px solid
+        var(--in-process-dark);
+}
+
 .task-overdue .task-message {
     background-color:
         #fff1f5;
 
-    border-left-color:
+    border-left:
+        3px solid
         var(--past-due-dark);
 
     color:
@@ -936,9 +1255,10 @@ textarea {
 
 .task-today .task-message {
     background-color:
-        #fff9df;
+        #fff8dc;
 
-    border-left-color:
+    border-left:
+        3px solid
         var(--due-today-dark);
 
     color:
@@ -949,7 +1269,8 @@ textarea {
     background-color:
         var(--app-cream);
 
-    border-left-color:
+    border-left:
+        3px solid
         var(--complete-dark);
 
     color:
@@ -969,7 +1290,7 @@ textarea {
     font-size: 0.68rem;
 }
 
-.task-item button:last-of-type {
+.delete-button {
     color:
         #665b53;
 
@@ -981,8 +1302,9 @@ textarea {
         var(--taupe);
 }
 
-.task-item button:last-of-type:hover {
-    color: var(--white);
+.delete-button:hover {
+    color:
+        var(--white);
 
     background-color:
         #665b53;
@@ -1010,7 +1332,10 @@ textarea {
 /* PROJECT NOTES */
 
 .project-notes {
-    margin-top: 1rem;
+    grid-column:
+        1 / -1;
+
+    margin-top: 0.6rem;
 
     padding: 0.9rem;
 
@@ -1023,13 +1348,13 @@ textarea {
 
     border-left:
         4px solid
-        var(--sage);
+        var(--taupe);
 
     border-radius: 5px;
 }
 
 
-/* EMPTY MESSAGE */
+/* EMPTY */
 
 #empty-message,
 .no-filter-results {
@@ -1126,6 +1451,16 @@ textarea {
 
     .projects-message {
         margin-top: 0.4rem;
+    }
+
+    .project-heading {
+        grid-template-columns:
+            1fr;
+    }
+
+    .project-actions {
+        justify-content:
+            flex-start;
     }
 
     .project-tasks {
