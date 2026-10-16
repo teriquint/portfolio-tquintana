@@ -947,6 +947,50 @@ function deleteTask(index) {
 
 
 
+function deleteProject(index) {
+
+    const project =
+        projects[index];
+
+
+    const shouldDelete =
+        confirm(
+            `Delete "${project.projectName}" and all of its tasks? This cannot be undone.`
+        );
+
+
+    if (!shouldDelete) {
+        return;
+    }
+
+
+    tasks =
+        tasks.filter(function(task) {
+
+            return (
+                task.projectName !==
+                project.projectName
+            );
+
+        });
+
+
+    projects.splice(
+        index,
+        1
+    );
+
+
+    saveProjects();
+    saveTasks();
+
+
+    displayProjectOptions();
+    displayTasks();
+}
+
+
+
 /* DISPLAY */
 
 function displayTasks() {
@@ -1362,6 +1406,14 @@ function displayTasks() {
                                 onclick="toggleProjectEdit(${projectIndex})"
                             >
                                 Cancel
+                            </button>
+
+                            <button
+                                class="delete-button"
+                                type="button"
+                                onclick="deleteProject(${projectIndex})"
+                            >
+                                Delete Project
                             </button>
 
                         </div>
