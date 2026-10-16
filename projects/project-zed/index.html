@@ -24,20 +24,14 @@
 
 <body>
 
-    <div class="workspace-photo">
-        <img
-            src="images/office-background.jpg"
-            alt=""
-            aria-hidden="true"
-        >
-    </div>
-
-
     <main class="app-shell">
+
+        <!-- HEADER -->
 
         <header class="app-header">
 
-            <div>
+            <div class="header-copy">
+
                 <p class="eyebrow">
                     TASK TRACKER
                 </p>
@@ -51,17 +45,24 @@
                     Organize projects, tasks, and deadlines
                     in one simple workspace.
                 </p>
+
             </div>
 
-            <div
-                class="header-mark"
-                aria-hidden="true"
-            >
-                ✓
+
+            <div class="header-graphic">
+
+                <img
+                    src="images/office-background.jpg"
+                    alt=""
+                    aria-hidden="true"
+                >
+
             </div>
 
         </header>
 
+
+        <!-- DASHBOARD -->
 
         <section
             class="dashboard-filters"
@@ -75,6 +76,7 @@
                     type="button"
                     data-filter="active"
                 >
+
                     <span
                         class="summary-number"
                         id="projects-count"
@@ -89,6 +91,7 @@
                     <span class="summary-hint">
                         View active work
                     </span>
+
                 </button>
 
 
@@ -97,6 +100,7 @@
                     type="button"
                     data-filter="overdue"
                 >
+
                     <span
                         class="summary-number overdue-number"
                         id="overdue-count"
@@ -111,6 +115,7 @@
                     <span class="summary-hint">
                         Needs attention
                     </span>
+
                 </button>
 
 
@@ -119,6 +124,7 @@
                     type="button"
                     data-filter="today"
                 >
+
                     <span
                         class="summary-number today-number"
                         id="today-count"
@@ -133,6 +139,7 @@
                     <span class="summary-hint">
                         Today's priorities
                     </span>
+
                 </button>
 
 
@@ -141,6 +148,7 @@
                     type="button"
                     data-filter="completed"
                 >
+
                     <span
                         class="summary-number completed-number"
                         id="completed-count"
@@ -155,6 +163,7 @@
                     <span class="summary-hint">
                         See finished projects
                     </span>
+
                 </button>
 
             </div>
@@ -193,6 +202,8 @@
         </section>
 
 
+        <!-- CREATE / ADD -->
+
         <section class="workspace">
 
             <div class="workspace-section">
@@ -213,6 +224,7 @@
                 <form id="project-form">
 
                     <div>
+
                         <label for="new-project-name">
                             Project Name
                         </label>
@@ -224,10 +236,12 @@
                             placeholder="Example: Career Report"
                             required
                         >
+
                     </div>
 
 
                     <div>
+
                         <label for="new-project-due-date">
                             Project Due Date
                         </label>
@@ -238,6 +252,7 @@
                             name="new-project-due-date"
                             required
                         >
+
                     </div>
 
 
@@ -274,6 +289,7 @@
                 <form id="task-form">
 
                     <div>
+
                         <label for="project-select">
                             Choose Project
                         </label>
@@ -283,14 +299,18 @@
                             name="project-select"
                             required
                         >
+
                             <option value="">
                                 Choose a project
                             </option>
+
                         </select>
+
                     </div>
 
 
                     <div>
+
                         <label for="task-name">
                             Task Name
                         </label>
@@ -302,10 +322,12 @@
                             placeholder="What needs to be done?"
                             required
                         >
+
                     </div>
 
 
                     <div>
+
                         <label for="task-details">
                             Task Details
                         </label>
@@ -316,10 +338,12 @@
                             rows="3"
                             placeholder="Add optional details..."
                         ></textarea>
+
                     </div>
 
 
                     <div>
+
                         <label for="due-date">
                             Task Due Date
                         </label>
@@ -330,6 +354,7 @@
                             name="due-date"
                             required
                         >
+
                     </div>
 
 
@@ -344,6 +369,8 @@
         </section>
 
 
+        <!-- PROJECTS -->
+
         <section
             class="projects-area"
             id="projects-area"
@@ -353,6 +380,7 @@
             <div class="projects-heading">
 
                 <div>
+
                     <p class="section-label">
                         CURRENT WORK
                     </p>
@@ -360,7 +388,9 @@
                     <h2 id="projects-heading">
                         My Projects
                     </h2>
+
                 </div>
+
 
                 <p class="projects-message">
                     One step at a time.
