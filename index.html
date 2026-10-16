@@ -3,10 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-        content="Portfolio of Teri Quintana featuring web development, data, and digital communication projects.">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Portfolio of Teri Quintana featuring web development, data, and digital communication projects."
+    >
 
     <title>Teri Quintana | Portfolio</title>
 
@@ -15,50 +21,137 @@
 
 <body>
 
-    <nav class="nav-container">
-        <a href="index.html" class="logo">Teri Quintana</a>
+    <a href="#main" class="skip-link">
+        Skip to content
+    </a>
+
+
+    <!-- NAVIGATION -->
+
+    <nav
+        class="nav-container"
+        aria-label="Main navigation"
+    >
+
+        <a href="index.html" class="logo">
+            Teri Quintana
+        </a>
 
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#projects">
+                Projects
+            </a>
+
+            <a href="#skills">
+                Skills
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
         </div>
+
     </nav>
 
-    <header>
-        <div class="header-text">
 
-            <h1>Teri Quintana</h1>
+    <!-- HERO -->
 
-            <p>
+    <header class="home-hero">
+
+        <div class="hero-copy">
+
+            <p class="eyebrow">
+                DIGITAL CULTURE & DATA ANALYTICS
+            </p>
+
+            <h1>
+                Teri Quintana
+            </h1>
+
+            <p class="hero-lead">
                 DCDA student and higher education professional combining
                 communication, organization, data, and digital design.
             </p>
 
-            <p>
+            <p class="hero-text">
                 I enjoy using technology to organize information, work with data,
                 create useful web applications, and make information easier for
                 people to understand.
             </p>
 
-        </div>
-    </header>
+            <div class="hero-actions">
 
-    <main>
+                <a
+                    href="#projects"
+                    class="button button-primary"
+                >
+                    View My Projects
+                </a>
 
-        <section class="about" id="about">
-
-            <div class="about-image">
-
-                <img src="images/headshot.png" alt="Headshot of Teri Quintana">
+                <a
+                    href="about.html"
+                    class="button button-secondary"
+                >
+                    About Me
+                </a>
 
             </div>
 
-            <div class="about-text">
+        </div>
 
-                <h2>About Me</h2>
+
+        <div class="hero-visual">
+
+            <div class="photo-accent"></div>
+
+            <div class="hero-photo">
+
+                <img
+                    src="images/headshot.png"
+                    alt="Headshot of Teri Quintana"
+                >
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main id="main">
+
+
+        <!-- ABOUT -->
+
+        <section
+            class="about"
+            id="about"
+        >
+
+            <div class="about-heading">
+
+                <p class="section-kicker">
+                    ABOUT
+                </p>
+
+                <h2>
+                    About Me
+                </h2>
+
+            </div>
+
+
+            <div class="about-text">
 
                 <p>
                     I support Graduate Career Management and Neeley & Associates
@@ -76,28 +169,65 @@
                 </p>
 
                 <p>
-                    <a href="about.html">Learn More About Me</a>
+                    <a
+                        href="about.html"
+                        class="text-link"
+                    >
+                        Learn More About Me
+                    </a>
                 </p>
 
             </div>
 
         </section>
 
-        <section id="projects">
 
-            <h2>WRIT 40363 Projects</h2>
 
-            <p>
-                These four projects show my progression through WRIT 40363,
-                from building my first portfolio to creating interactive
-                JavaScript applications.
-            </p>
+        <!-- PROJECTS -->
 
-            <ul class="project-list">
+        <section
+            id="projects"
+            class="projects-section"
+        >
 
-                <li class="project-card">
+            <div class="section-intro">
 
-                    <h3>Project 1: Personal Portfolio</h3>
+                <p class="section-kicker">
+                    MY WORK
+                </p>
+
+                <h2>
+                    WRIT 40363 Projects
+                </h2>
+
+                <p>
+                    These projects show my progression through WRIT 40363,
+                    from building my first portfolio to creating interactive
+                    JavaScript applications.
+                </p>
+
+            </div>
+
+
+
+            <!-- WHERE I STARTED -->
+
+            <article class="starting-point">
+
+                <div class="starting-number">
+                    01
+                </div>
+
+
+                <div class="starting-copy">
+
+                    <p class="starting-label">
+                        WHERE I STARTED
+                    </p>
+
+                    <h3>
+                        Project 1: Personal Portfolio
+                    </h3>
 
                     <p>
                         My first project was a responsive personal portfolio built
@@ -107,86 +237,172 @@
                     </p>
 
                     <p>
-                        This original version also became the starting point for
-                        the revised portfolio I created at the end of the course.
+                        That original project became the starting point for the
+                        revised portfolio you are viewing now.
                     </p>
 
-                    <p>
+                    <p class="technology">
                         <strong>Technologies:</strong>
                         HTML, CSS, Flexbox, Grid, GitHub Pages
                     </p>
 
-                    <p>
-                        <a href="projects/project1-original/index.html">
-                            View Original Portfolio
-                        </a>
-                    </p>
+                    <a
+                        href="projects/project1-original/index.html"
+                        class="project-link"
+                    >
+                        View Original Portfolio
+                    </a>
 
-                </li>
+                </div>
 
-                <li class="project-card">
+            </article>
 
-                    <h3>Project 2: Local Favorites Tracker</h3>
 
-                    <p>
-                        I created a web app for saving and organizing favorite
-                        local places. Users can add favorites, search and filter
-                        them, delete places, and keep their information after
-                        refreshing the page.
-                    </p>
 
-                    <p>
-                        This project helped me become more comfortable working
-                        with JavaScript, arrays, forms, DOM manipulation, and
-                        localStorage.
-                    </p>
+            <!-- PROJECTS 2 AND 3 -->
 
-                    <p>
-                        <strong>Technologies:</strong>
-                        HTML, CSS, JavaScript, localStorage
-                    </p>
+            <div class="project-grid">
 
-                    <p>
-                        <a href="projects/project2-tracker/index.html">
+
+                <!-- PROJECT 2 -->
+
+                <article class="project-card">
+
+                    <div class="project-preview">
+
+                        <img
+                            src="images/favorites-preview.png"
+                            alt="Preview of the Local Favorites Tracker"
+                        >
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <div class="project-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Project 2: Local Favorites Tracker
+                        </h3>
+
+                        <p>
+                            I created a web app for saving and organizing favorite
+                            local places. Users can add favorites, search and filter
+                            them, delete places, and keep their information after
+                            refreshing the page.
+                        </p>
+
+                        <p>
+                            This project helped me become more comfortable working
+                            with JavaScript, arrays, forms, DOM manipulation, and
+                            localStorage.
+                        </p>
+
+                        <p class="technology">
+                            <strong>Technologies:</strong>
+                            HTML, CSS, JavaScript, localStorage
+                        </p>
+
+                        <a
+                            href="projects/project2-tracker/index.html"
+                            class="project-link"
+                        >
                             View Local Favorites Tracker
                         </a>
-                    </p>
 
-                </li>
+                    </div>
 
-                <li class="project-card">
+                </article>
 
-                    <h3>Project 3: Personal Data Dashboard</h3>
 
-                    <p>
-                        I built a personal data dashboard that combines several
-                        small widgets into one page. It includes weather data,
-                        daily quotes, and a light and dark theme that saves the
-                        user's preference.
-                    </p>
 
-                    <p>
-                        This project gave me more experience working with
-                        JavaScript, JSON, Fetch, and creating an interface that
-                        presents different kinds of information clearly.
-                    </p>
+                <!-- PROJECT 3 -->
 
-                    <p>
-                        <strong>Technologies:</strong>
-                        HTML, CSS, JavaScript, JSON, Fetch API, localStorage
-                    </p>
+                <article class="project-card">
 
-                    <p>
-                        <a href="projects/project3-dashboard/index.html">
+                    <div class="project-preview">
+
+                        <img
+                            src="images/dashboard-preview.png"
+                            alt="Preview of the Personal Data Dashboard"
+                        >
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <div class="project-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Project 3: Personal Data Dashboard
+                        </h3>
+
+                        <p>
+                            I built a personal data dashboard that combines several
+                            small widgets into one page. It includes weather data,
+                            daily quotes, and a light and dark theme that saves the
+                            user's preference.
+                        </p>
+
+                        <p>
+                            This project gave me more experience working with
+                            JavaScript, JSON, Fetch, and creating an interface that
+                            presents different kinds of information clearly.
+                        </p>
+
+                        <p class="technology">
+                            <strong>Technologies:</strong>
+                            HTML, CSS, JavaScript, JSON, Fetch API, localStorage
+                        </p>
+
+                        <a
+                            href="projects/project3-dashboard/index.html"
+                            class="project-link"
+                        >
                             View Personal Data Dashboard
                         </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- PROJECT ZED -->
+
+            <article class="featured-project">
+
+                <div class="featured-preview">
+
+                    <img
+                        src="images/zed-preview.png"
+                        alt="Preview of the Project Zed Task Tracker"
+                    >
+
+                </div>
+
+
+                <div class="featured-content">
+
+                    <p class="featured-label">
+                        FINAL PROJECT
                     </p>
 
-                </li>
+                    <div class="featured-number">
+                        Z
+                    </div>
 
-                <li class="project-card">
-
-                    <h3>Project Zed: Task Tracker</h3>
+                    <h3>
+                        Project Zed: Task Tracker
+                    </h3>
 
                     <p>
                         I created a Task Tracker to help organize multiple
@@ -201,79 +417,111 @@
                         tasks as Past Due, Due Today, In Process, or Completed.
                     </p>
 
-                    <p>
+                    <p class="featured-technology">
                         <strong>Technologies:</strong>
                         HTML, CSS, JavaScript, Date objects, localStorage
                     </p>
 
-                    <p>
-                        <a href="projects/project-zed/index.html">
-                            View Task Tracker
-                        </a>
-                    </p>
+                    <a
+                        href="projects/project-zed/index.html"
+                        class="featured-link"
+                    >
+                        View Task Tracker
+                    </a>
 
-                </li>
+                </div>
 
-            </ul>
+            </article>
 
         </section>
 
-        <section id="skills">
 
-            <h2>Skills</h2>
+
+        <!-- SKILLS -->
+
+        <section
+            id="skills"
+            class="skills-section"
+        >
+
+            <div class="section-intro">
+
+                <p class="section-kicker">
+                    SKILLS
+                </p>
+
+                <h2>
+                    Skills
+                </h2>
+
+            </div>
+
 
             <ul class="skills-grid">
 
                 <li class="skill-card">
                     <h3>HTML</h3>
+
                     <p>
                         Semantic page structure, forms, navigation, links,
                         images, and accessible content.
                     </p>
                 </li>
 
+
                 <li class="skill-card">
                     <h3>CSS</h3>
+
                     <p>
                         Responsive layouts, Flexbox, Grid, media queries,
                         color, spacing, and visual design.
                     </p>
                 </li>
 
+
                 <li class="skill-card">
                     <h3>JavaScript</h3>
+
                     <p>
                         Events, arrays, functions, DOM manipulation,
                         filtering, sorting, and interactive features.
                     </p>
                 </li>
 
+
                 <li class="skill-card">
                     <h3>Data</h3>
+
                     <p>
                         Working with JSON, Fetch, data organization,
                         analysis, and visual presentation.
                     </p>
                 </li>
 
+
                 <li class="skill-card">
                     <h3>Accessibility & UX</h3>
+
                     <p>
                         Semantic HTML, labels, alt text, keyboard focus,
                         color contrast, and responsive design.
                     </p>
                 </li>
 
+
                 <li class="skill-card">
                     <h3>Git & GitHub</h3>
+
                     <p>
                         Version control, commits, repositories,
                         GitHub Desktop, and deployment with GitHub Pages.
                     </p>
                 </li>
 
+
                 <li class="skill-card">
                     <h3>AI-Assisted Development</h3>
+
                     <p>
                         Using AI for brainstorming, troubleshooting,
                         learning new techniques, and improving code while
@@ -281,8 +529,10 @@
                     </p>
                 </li>
 
+
                 <li class="skill-card">
                     <h3>Digital Communication</h3>
+
                     <p>
                         Organizing information and combining writing,
                         visual design, and technology for different audiences.
@@ -293,96 +543,175 @@
 
         </section>
 
-        <section>
 
-            <h2>Additional Work</h2>
 
-            <ul class="project-list">
+        <!-- ADDITIONAL WORK -->
 
-                <li class="project-card">
+        <section class="additional-section">
 
-                    <h3>Higher Ed Marketing Across Platforms</h3>
+            <div class="section-intro">
 
-                    <img src="images/CapstoneProject_2026.png"
-                        alt="Homepage preview of the Higher Ed Marketing Across Platforms capstone project">
+                <p class="section-kicker">
+                    ADDITIONAL WORK
+                </p>
 
-                    <p>
-                        Built a capstone website examining how universities
-                        and business schools present themselves across Instagram,
-                        LinkedIn, and their websites.
-                    </p>
+                <h2>
+                    Additional Work
+                </h2>
 
-                    <p>
-                        <a href="https://teriquint.github.io/CapstoneFinalProject/" target="_blank" rel="noopener">
+            </div>
+
+
+            <div class="additional-grid">
+
+
+                <!-- CAPSTONE -->
+
+                <article class="visual-project">
+
+                    <div class="visual-project-image">
+
+                        <img
+                            src="images/CapstoneProject_2026.png"
+                            alt="Homepage preview of the Higher Ed Marketing Across Platforms capstone project"
+                        >
+
+                    </div>
+
+
+                    <div class="visual-project-copy">
+
+                        <h3>
+                            Higher Ed Marketing Across Platforms
+                        </h3>
+
+                        <p>
+                            Built a capstone website examining how universities
+                            and business schools present themselves across Instagram,
+                            LinkedIn, and their websites.
+                        </p>
+
+                        <a
+                            href="https://teriquint.github.io/CapstoneFinalProject/"
+                            target="_blank"
+                            rel="noopener"
+                            class="text-link"
+                        >
                             View Higher Ed Marketing Across Platforms
                         </a>
-                    </p>
 
-                </li>
+                    </div>
 
-                <li class="project-card">
+                </article>
 
-                    <h3>Big 12 Case Competition Program</h3>
 
-                    <img src="images/Big12prog_2026.png"
-                        alt="Cover of the 18th Annual Big 12 MBA Case Competition program">
 
-                    <p>
-                        Designed a program in Canva for the 18th Annual
-                        Big 12 MBA Case Competition hosted by TCU Neeley School of Business.
-                        I organized event information into a polished visual
-                        guide for participants and guests.
-                    </p>
+                <!-- BIG 12 PROGRAM -->
 
-                    <p>
-                        <a href="https://canva.link/5jg4415i4o3rdum" target="_blank" rel="noopener">
+                <article class="visual-project">
+
+                    <div class="program-preview">
+
+                        <img
+                            src="images/Big12prog_2026.png"
+                            alt="Cover of the 18th Annual Big 12 MBA Case Competition program"
+                        >
+
+                    </div>
+
+
+                    <div class="visual-project-copy">
+
+                        <h3>
+                            Big 12 Case Competition Program
+                        </h3>
+
+                        <p>
+                            Designed a program in Canva for the 18th Annual
+                            Big 12 MBA Case Competition hosted by TCU Neeley
+                            School of Business. I organized event information
+                            into a polished visual guide for participants and guests.
+                        </p>
+
+                        <a
+                            href="https://canva.link/5jg4415i4o3rdum"
+                            target="_blank"
+                            rel="noopener"
+                            class="text-link"
+                        >
                             View Big 12 Case Competition Program
                         </a>
-                    </p>
 
-                </li>
+                    </div>
 
-            </ul>
+                </article>
+
+            </div>
 
         </section>
 
-        <section id="contact">
 
-            <h2>Contact</h2>
 
-            <p>
-                You can reach me by email or connect with me through
-                LinkedIn and GitHub.
-            </p>
+        <!-- CONTACT -->
 
-            <ul>
+        <section
+            id="contact"
+            class="contact-section"
+        >
 
-                <li>
-                    <a href="mailto:t.quintana@tcu.edu">
-                        Email Me
-                    </a>
-                </li>
+            <div>
 
-                <li>
-                    <a href="https://www.linkedin.com/in/teri-quintana-64562327b" target="_blank" rel="noopener">
-                        LinkedIn
-                    </a>
-                </li>
+                <p class="contact-label">
+                    CONTACT
+                </p>
 
-                <li>
-                    <a href="https://github.com/teriquint" target="_blank" rel="noopener">
-                        GitHub
-                    </a>
-                </li>
+                <h2>
+                    Contact
+                </h2>
 
-            </ul>
+                <p>
+                    You can reach me by email or connect with me through
+                    LinkedIn and GitHub.
+                </p>
+
+            </div>
+
+
+            <div class="contact-links">
+
+                <a href="mailto:t.quintana@tcu.edu">
+                    Email Me
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/teri-quintana-64562327b"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    LinkedIn
+                </a>
+
+                <a
+                    href="https://github.com/teriquint"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    GitHub
+                </a>
+
+            </div>
 
         </section>
 
     </main>
 
+
     <footer>
-        <p>&copy; 2026 Teri Quintana - Personal Portfolio</p>
+
+        <p>
+            &copy; 2026 Teri Quintana - Personal Portfolio
+        </p>
+
     </footer>
 
 </body>
