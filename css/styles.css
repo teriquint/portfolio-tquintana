@@ -29,7 +29,6 @@ img {
    ========================== */
 
 :root {
-
     --purple: #4d1979;
     --purple-dark: #321052;
     --purple-light: #eee8f3;
@@ -141,14 +140,10 @@ a {
    ========================== */
 
 .skip-link {
-    position:
-        absolute;
+    position: absolute;
 
-    top:
-        -70px;
-
-    left:
-        1rem;
+    top: -70px;
+    left: 1rem;
 
     padding:
         0.7rem 1rem;
@@ -164,8 +159,7 @@ a {
 }
 
 .skip-link:focus {
-    top:
-        1rem;
+    top: 1rem;
 }
 
 a:focus-visible,
@@ -797,29 +791,60 @@ main > section {
         grid;
 
     grid-template-columns:
-        minmax(220px, 0.7fr)
-        minmax(0, 1.3fr);
+        230px minmax(0, 1fr);
 
     gap:
-        3rem;
+        2.75rem;
 
     align-items:
         start;
 
     padding-top:
-        3rem;
+        2.25rem;
 
     padding-bottom:
-        3rem;
+        1.75rem;
 
     border-bottom:
         1px solid
         var(--gray-medium);
 }
 
+.about-heading h2 {
+    margin-bottom:
+        0.8rem;
+
+    color:
+        var(--purple);
+}
+
+.about-family-image {
+    width:
+        230px;
+
+    max-width:
+        100%;
+
+    margin-top:
+        0.75rem;
+
+    object-fit:
+        cover;
+
+    box-shadow:
+        var(--shadow-small);
+
+    border-bottom:
+        4px solid
+        var(--gold);
+}
+
 .about-text {
     max-width:
         var(--reading-width);
+
+    padding-top:
+        0.25rem;
 
     color:
         #48434a;
@@ -1972,10 +1997,15 @@ body > header:not(.home-hero) p {
 
     .about {
         grid-template-columns:
-            1fr;
+            210px minmax(0, 1fr);
 
         gap:
             2rem;
+    }
+
+    .about-family-image {
+        width:
+            210px;
     }
 
     .starting-point {
@@ -2100,11 +2130,30 @@ body > header:not(.home-hero) p {
     /* About */
 
     .about {
+        grid-template-columns:
+            1fr;
+
+        gap:
+            1.5rem;
+
         padding-top:
-            2.5rem;
+            2rem;
 
         padding-bottom:
-            2.5rem;
+            1.75rem;
+    }
+
+    .about-family-image {
+        width:
+            200px;
+
+        margin-top:
+            0.75rem;
+    }
+
+    .about-text {
+        padding-top:
+            0;
     }
 
 
