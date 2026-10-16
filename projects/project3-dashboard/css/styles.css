@@ -2,7 +2,7 @@
 
 
 /* ==========================
-   1. RESET
+   RESET
    ========================== */
 
 *,
@@ -13,188 +13,117 @@
     padding: 0;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
 
 /* ==========================
-   2. DESIGN TOKENS
+   DESIGN TOKENS
    ========================== */
 
 :root {
 
-    /* TCU purple */
+    --sky-blue: #a9ddf7;
+    --sky-blue-medium: #79c6e8;
+    --sky-blue-dark: #397fa4;
 
-    --color-accent: #4d1979;
-    --color-accent-strong: #321052;
-    --color-accent-soft: #eee4f5;
+    --purple: #4d1979;
+    --purple-dark: #321052;
 
-    /* Text */
+    --text: #273849;
+    --muted: #64798a;
 
-    --color-text: #1f2a3a;
-    --color-muted: #667489;
+    --white: #ffffff;
 
-    /* Borders and surfaces */
+    --surface:
+        rgba(255, 255, 255, 0.92);
 
-    --color-border: rgba(196, 210, 222, 0.9);
+    --surface-soft:
+        rgba(245, 251, 255, 0.92);
 
-    --color-surface:
-        rgba(255, 255, 255, 0.86);
+    --border:
+        rgba(183, 207, 222, 0.9);
 
-    --color-surface-solid:
-        #ffffff;
+    --radius-small: 10px;
+    --radius-medium: 18px;
+    --radius-large: 26px;
 
-    --color-surface-alt:
-        rgba(247, 248, 252, 0.92);
+    --shadow-small:
+        0 6px 18px
+        rgba(38, 83, 107, 0.12);
 
-    /* Weather card */
+    --shadow-medium:
+        0 15px 35px
+        rgba(38, 83, 107, 0.18);
 
-    --weather-start:
-        rgba(230, 244, 255, 0.94);
+    --shadow-large:
+        0 25px 60px
+        rgba(38, 83, 107, 0.22);
 
-    --weather-end:
-        rgba(255, 255, 255, 0.9);
-
-    --weather-detail:
-        rgba(255, 255, 255, 0.7);
-
-    /* Other */
-
-    --button-text: #ffffff;
-
-    /* Spacing */
-
-    --space-xs: 0.25rem;
-    --space-sm: 0.5rem;
-    --space-md: 1rem;
-    --space-lg: 1.5rem;
-    --space-xl: 2rem;
-    --space-xxl: 3rem;
-
-    /* Typography */
-
-    --text-base: 1rem;
-    --text-h3: 1.25rem;
-    --text-h2: 1.65rem;
-    --text-h1: 2.7rem;
-
-    --leading-body: 1.6;
-    --leading-heading: 1.15;
-
-    --font-stack:
+    --font-body:
         'Inter',
         system-ui,
-        -apple-system,
         sans-serif;
 
-    --font-serif:
+    --font-heading:
         'Lora',
         Georgia,
         serif;
-
-    /* Layout */
-
-    --page-width: 70rem;
-
-    --radius-sm: 8px;
-    --radius-md: 14px;
-    --radius-lg: 24px;
-
-    --shadow-sm:
-        0 5px 16px
-        rgba(43, 65, 87, 0.12);
-
-    --shadow-md:
-        0 14px 35px
-        rgba(43, 65, 87, 0.18);
-
-    --shadow-lg:
-        0 24px 65px
-        rgba(43, 65, 87, 0.23);
 }
 
 
 /* ==========================
-   3. DARK THEME
+   DARK MODE COLORS
    ========================== */
 
 body.theme-dark {
 
-    --color-accent: #d4b5f3;
-    --color-accent-strong: #eadbfa;
-    --color-accent-soft: #352b48;
+    --text: #f5f8fb;
+    --muted: #b5c4d1;
 
-    --color-text: #f7f9fc;
-    --color-muted: #b4c0d0;
+    --surface:
+        rgba(27, 39, 54, 0.94);
 
-    --color-border:
-        rgba(78, 94, 115, 0.9);
+    --surface-soft:
+        rgba(33, 48, 66, 0.94);
 
-    --color-surface:
-        rgba(24, 34, 48, 0.9);
+    --border:
+        rgba(103, 126, 148, 0.55);
 
-    --color-surface-solid:
-        #1d2837;
+    --shadow-small:
+        0 6px 18px
+        rgba(0, 0, 0, 0.3);
 
-    --color-surface-alt:
-        rgba(37, 47, 64, 0.92);
+    --shadow-medium:
+        0 15px 35px
+        rgba(0, 0, 0, 0.38);
 
-    --weather-start:
-        rgba(34, 51, 71, 0.94);
-
-    --weather-end:
-        rgba(25, 37, 52, 0.94);
-
-    --weather-detail:
-        rgba(47, 65, 86, 0.9);
-
-    --button-text:
-        #17101f;
-
-    --shadow-sm:
-        0 5px 18px
-        rgba(0, 0, 0, 0.28);
-
-    --shadow-md:
-        0 16px 38px
-        rgba(0, 0, 0, 0.34);
-
-    --shadow-lg:
-        0 28px 70px
-        rgba(0, 0, 0, 0.42);
+    --shadow-large:
+        0 25px 60px
+        rgba(0, 0, 0, 0.45);
 }
 
 
 /* ==========================
-   4. PAGE BACKGROUND
+   PAGE
    ========================== */
 
 body {
     min-height: 100vh;
 
     padding:
-        var(--space-xl)
-        var(--space-md);
+        2rem 1rem;
 
     color:
-        var(--color-text);
+        var(--text);
 
     font-family:
-        var(--font-stack);
-
-    font-size:
-        var(--text-base);
+        var(--font-body);
 
     line-height:
-        var(--leading-body);
+        1.6;
 
     background-image:
         linear-gradient(
-            rgba(255, 255, 255, 0.12),
-            rgba(232, 244, 252, 0.3)
+            rgba(255, 255, 255, 0.04),
+            rgba(220, 241, 251, 0.14)
         ),
         url("../images/weather-background.png");
 
@@ -212,35 +141,64 @@ body {
 }
 
 
-/* Dark mode keeps the photo
-   but gives it an evening feel */
+/* Dark mode keeps the photo */
 
 body.theme-dark {
     background-image:
         linear-gradient(
-            rgba(8, 18, 30, 0.62),
-            rgba(20, 16, 32, 0.74)
+            rgba(9, 18, 29, 0.58),
+            rgba(16, 24, 38, 0.72)
         ),
         url("../images/weather-background.png");
 }
 
 
 /* ==========================
-   5. DASHBOARD SHELL
+   SKIP LINK
+   ========================== */
+
+.skip-link {
+    position: absolute;
+
+    top: -60px;
+    left: 1rem;
+
+    padding:
+        0.6rem 1rem;
+
+    color:
+        #ffffff;
+
+    background-color:
+        #2d6683;
+
+    border-radius:
+        var(--radius-small);
+
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+
+/* ==========================
+   MAIN SHELL
    ========================== */
 
 .dashboard-shell {
     width:
-        min(100%, var(--page-width));
+        min(100%, 70rem);
 
     margin:
         0 auto;
 
     padding:
-        var(--space-lg);
+        1.5rem;
 
-    background:
-        rgba(255, 255, 255, 0.42);
+    background-color:
+        rgba(255, 255, 255, 0.3);
 
     border:
         1px solid
@@ -250,18 +208,19 @@ body.theme-dark {
         30px;
 
     box-shadow:
-        var(--shadow-lg);
+        var(--shadow-large);
 
     backdrop-filter:
-        blur(10px);
+        blur(7px);
 
     -webkit-backdrop-filter:
-        blur(10px);
+        blur(7px);
 }
 
+
 body.theme-dark .dashboard-shell {
-    background:
-        rgba(15, 23, 35, 0.45);
+    background-color:
+        rgba(12, 22, 34, 0.4);
 
     border-color:
         rgba(255, 255, 255, 0.08);
@@ -269,97 +228,11 @@ body.theme-dark .dashboard-shell {
 
 
 /* ==========================
-   6. TYPOGRAPHY
-   ========================== */
-
-h1,
-h2,
-h3 {
-    font-family:
-        var(--font-serif);
-
-    line-height:
-        var(--leading-heading);
-}
-
-h1 {
-    font-size:
-        clamp(
-            2rem,
-            5vw,
-            var(--text-h1)
-        );
-}
-
-h2 {
-    font-size:
-        var(--text-h2);
-}
-
-h3 {
-    font-size:
-        var(--text-h3);
-}
-
-p {
-    margin-bottom:
-        var(--space-md);
-}
-
-p:last-child {
-    margin-bottom:
-        0;
-}
-
-a {
-    color:
-        var(--color-accent);
-}
-
-
-/* ==========================
-   7. SKIP LINK
-   ========================== */
-
-.skip-link {
-    position:
-        absolute;
-
-    top:
-        -70px;
-
-    left:
-        1rem;
-
-    padding:
-        0.65rem 1rem;
-
-    color:
-        #ffffff;
-
-    background-color:
-        #321052;
-
-    border-radius:
-        var(--radius-sm);
-
-    z-index:
-        100;
-}
-
-.skip-link:focus {
-    top:
-        1rem;
-}
-
-
-/* ==========================
-   8. HEADER
+   HEADER
    ========================== */
 
 .dashboard-header {
-    display:
-        flex;
+    display: flex;
 
     align-items:
         center;
@@ -368,44 +241,41 @@ a {
         space-between;
 
     gap:
-        var(--space-xl);
+        2rem;
 
     padding:
         2.4rem 2.6rem;
 
     margin-bottom:
-        var(--space-lg);
+        1.5rem;
 
-    color:
-        #ffffff;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(50, 16, 82, 0.97),
-            rgba(77, 25, 121, 0.95) 60%,
-            rgba(107, 54, 148, 0.94)
-        );
+    background-color:
+        rgba(255, 255, 255, 0.96);
 
     border:
         1px solid
-        rgba(255, 255, 255, 0.2);
+        rgba(255, 255, 255, 0.95);
 
     border-radius:
-        var(--radius-lg);
+        var(--radius-large);
 
     box-shadow:
-        var(--shadow-md);
+        var(--shadow-medium);
 }
+
 
 .header-text {
     max-width:
-        680px;
+        670px;
 }
+
 
 .eyebrow {
     margin-bottom:
-        var(--space-sm);
+        0.5rem;
+
+    color:
+        var(--sky-blue-dark);
 
     font-size:
         0.72rem;
@@ -415,213 +285,205 @@ a {
 
     letter-spacing:
         0.16rem;
-
-    color:
-        #e9dff3;
 }
+
 
 .dashboard-header h1 {
     margin-bottom:
-        var(--space-sm);
+        0.55rem;
+
+    color:
+        #293d4e;
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        clamp(
+            2rem,
+            5vw,
+            2.8rem
+        );
+
+    line-height:
+        1.15;
 }
+
 
 .header-subtitle {
     max-width:
-        580px;
-
-    margin:
-        0;
+        560px;
 
     color:
-        rgba(255, 255, 255, 0.86);
+        #667b8c;
+}
+
+
+/* DARK HEADER */
+
+body.theme-dark .dashboard-header {
+    background-color:
+        rgba(28, 41, 57, 0.96);
+
+    border-color:
+        rgba(255, 255, 255, 0.08);
+}
+
+
+body.theme-dark .dashboard-header h1 {
+    color:
+        #f7fafc;
+}
+
+
+body.theme-dark .header-subtitle {
+    color:
+        #bdc9d4;
+}
+
+
+body.theme-dark .eyebrow {
+    color:
+        #9bd9f4;
 }
 
 
 /* ==========================
-   9. BUTTONS
+   SKY BLUE THEME BUTTON
    ========================== */
 
-button {
-    padding:
-        0.65rem 1.05rem;
+.theme-toggle {
+    flex-shrink: 0;
 
-    background-color:
-        var(--color-accent);
+    padding:
+        0.75rem 1.15rem;
 
     color:
-        var(--button-text);
+        #17445b;
+
+    background-color:
+        var(--sky-blue);
 
     border:
-        none;
+        1px solid
+        #84cbe9;
 
     border-radius:
-        10px;
+        12px;
+
+    box-shadow:
+        0 6px 17px
+        rgba(55, 129, 165, 0.2);
 
     font:
         inherit;
 
     font-weight:
-        600;
+        700;
 
     cursor:
         pointer;
 
     transition:
-        transform 0.18s ease,
-        background-color 0.18s ease,
-        box-shadow 0.18s ease;
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-button:hover {
-    background-color:
-        var(--color-accent-strong);
-
-    transform:
-        translateY(-1px);
-
-    box-shadow:
-        var(--shadow-sm);
-}
-
-button:disabled {
-    opacity:
-        0.5;
-
-    cursor:
-        not-allowed;
-
-    transform:
-        none;
-
-    box-shadow:
-        none;
-}
-
-
-/* Visible keyboard focus */
-
-a:focus-visible,
-button:focus-visible {
-    outline:
-        3px solid
-        #f1ceff;
-
-    outline-offset:
-        4px;
-}
-
-
-/* ==========================
-   10. THEME BUTTON
-   ========================== */
-
-.theme-toggle {
-    flex-shrink:
-        0;
-
-    color:
-        #321052;
-
-    background-color:
-        #ffffff;
-
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.75);
-
-    box-shadow:
-        0 6px 18px
-        rgba(0, 0, 0, 0.16);
-}
 
 .theme-toggle:hover {
     color:
         #ffffff;
 
     background-color:
-        #321052;
+        var(--sky-blue-dark);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 9px 20px
+        rgba(55, 129, 165, 0.25);
 }
+
 
 body.theme-dark .theme-toggle {
     color:
-        #321052;
+        #173f55;
 
     background-color:
-        #f4e9ff;
+        #a9ddf7;
 }
 
 
 /* ==========================
-   11. MAIN DASHBOARD
+   DASHBOARD GRID
    ========================== */
 
 main {
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         minmax(0, 1.35fr)
         minmax(0, 0.85fr);
 
     gap:
-        var(--space-lg);
-
-    width:
-        100%;
+        1.5rem;
 }
 
 
 /* ==========================
-   12. WIDGETS
+   WIDGETS
    ========================== */
 
 .widget {
-    position:
-        relative;
-
-    overflow:
-        hidden;
+    position: relative;
 
     min-height:
-        360px;
+        365px;
 
     padding:
         2rem;
 
+    overflow:
+        hidden;
+
     background-color:
-        var(--color-surface);
+        var(--surface);
 
     border:
         1px solid
-        var(--color-border);
+        var(--border);
 
     border-radius:
-        var(--radius-lg);
+        var(--radius-large);
 
     box-shadow:
-        var(--shadow-md);
+        var(--shadow-medium);
 
     backdrop-filter:
-        blur(10px);
+        blur(9px);
 
     -webkit-backdrop-filter:
-        blur(10px);
+        blur(9px);
 
     animation:
-        fadeIn 0.5s ease-out both;
+        fadeIn 0.45s ease-out both;
 
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
 }
 
+
 .widget:hover {
     transform:
         translateY(-4px);
 
     box-shadow:
-        var(--shadow-lg);
+        var(--shadow-large);
 }
+
 
 .quote-widget {
     animation-delay:
@@ -632,16 +494,14 @@ main {
 @keyframes fadeIn {
 
     from {
-        opacity:
-            0;
+        opacity: 0;
 
         transform:
             translateY(10px);
     }
 
     to {
-        opacity:
-            1;
+        opacity: 1;
 
         transform:
             translateY(0);
@@ -650,32 +510,32 @@ main {
 
 
 /* ==========================
-   13. WIDGET HEADINGS
+   WIDGET HEADERS
    ========================== */
 
 .widget-heading {
-    display:
-        flex;
-
-    align-items:
-        flex-start;
+    display: flex;
 
     justify-content:
         space-between;
 
+    align-items:
+        flex-start;
+
     gap:
-        var(--space-md);
+        1rem;
 
     margin-bottom:
-        var(--space-lg);
+        1.5rem;
 }
+
 
 .widget-label {
     margin-bottom:
         0.25rem;
 
     color:
-        var(--color-accent);
+        var(--sky-blue-dark);
 
     font-size:
         0.7rem;
@@ -687,34 +547,47 @@ main {
         0.14rem;
 }
 
-.widget-heading h2 {
-    margin:
-        0;
+
+.widget h2 {
+    color:
+        var(--text);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        1.7rem;
 }
 
 
 /* ==========================
-   14. WEATHER CARD
+   WEATHER CARD
    ========================== */
 
 .weather-widget {
     background:
         linear-gradient(
             145deg,
-            var(--weather-start),
-            var(--weather-end)
+            rgba(224, 244, 255, 0.96),
+            rgba(255, 255, 255, 0.93)
         );
-
-    border-color:
-        rgba(117, 149, 179, 0.35);
 }
 
 
-/* Decorative sun */
+body.theme-dark .weather-widget {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(36, 55, 75, 0.96),
+            rgba(25, 38, 54, 0.96)
+        );
+}
+
+
+/* SUN ICON */
 
 .weather-decoration {
-    display:
-        flex;
+    display: flex;
 
     align-items:
         center;
@@ -729,14 +602,14 @@ main {
         62px;
 
     color:
-        #856c13;
+        #8a6f10;
 
     background-color:
-        rgba(255, 236, 149, 0.82);
+        #fff1a6;
 
     border:
         1px solid
-        rgba(171, 142, 31, 0.22);
+        #ead77c;
 
     border-radius:
         50%;
@@ -745,60 +618,50 @@ main {
         2rem;
 
     box-shadow:
-        0 7px 20px
-        rgba(126, 103, 24, 0.14);
-}
-
-body.theme-dark .weather-decoration {
-    color:
-        #f7d86e;
-
-    background-color:
-        rgba(244, 214, 111, 0.12);
-
-    border-color:
-        rgba(244, 214, 111, 0.25);
+        var(--shadow-small);
 }
 
 
 /* ==========================
-   15. WEATHER OUTPUT
+   WEATHER DATA
    ========================== */
 
 #weather-display {
     margin-top:
-        var(--space-md);
+        1rem;
 }
 
+
 .weather-current {
-    display:
-        grid;
+    display: grid;
 
     gap:
         0.3rem;
 }
 
+
 .weather-icon {
     margin-bottom:
-        0.15rem;
+        0.25rem;
 
     font-size:
-        4rem;
+        4.2rem;
 
     line-height:
         1;
 }
+
 
 .weather-temp {
     margin:
         0;
 
     font-family:
-        var(--font-serif);
+        var(--font-heading);
 
     font-size:
         clamp(
-            3rem,
+            3.5rem,
             8vw,
             5rem
         );
@@ -810,27 +673,30 @@ body.theme-dark .weather-decoration {
         1;
 }
 
+
 .weather-location {
     margin-top:
-        0.6rem;
+        0.7rem;
 
     font-size:
-        1.2rem;
+        1.15rem;
 
     font-weight:
         700;
 }
 
+
 .weather-condition {
     margin-bottom:
-        var(--space-lg);
+        1.25rem;
 
     color:
-        var(--color-muted);
+        var(--muted);
 
     font-size:
         1.05rem;
 }
+
 
 .weather-current p {
     margin:
@@ -838,34 +704,43 @@ body.theme-dark .weather-decoration {
 }
 
 
-/* Humidity and wind */
+/* Humidity and wind boxes */
 
 .weather-current p:nth-last-child(-n + 2) {
-    padding:
-        0.65rem 0.8rem;
-
     margin-top:
         0.4rem;
 
+    padding:
+        0.7rem 0.85rem;
+
     background-color:
-        var(--weather-detail);
+        rgba(255, 255, 255, 0.65);
 
     border:
         1px solid
-        var(--color-border);
+        rgba(183, 207, 222, 0.8);
 
     border-radius:
-        var(--radius-sm);
+        var(--radius-small);
+}
+
+
+body.theme-dark
+.weather-current p:nth-last-child(-n + 2) {
+    background-color:
+        rgba(48, 68, 91, 0.8);
+
+    border-color:
+        rgba(102, 127, 151, 0.5);
 }
 
 
 /* ==========================
-   16. QUOTE CARD
+   QUOTE CARD
    ========================== */
 
 .quote-widget {
-    display:
-        flex;
+    display: flex;
 
     flex-direction:
         column;
@@ -873,14 +748,15 @@ body.theme-dark .weather-decoration {
     background:
         linear-gradient(
             160deg,
-            var(--color-surface),
-            var(--color-surface-alt)
+            var(--surface),
+            var(--surface-soft)
         );
 }
 
+
 .quote-decoration {
     color:
-        var(--color-accent);
+        var(--sky-blue-dark);
 
     font-family:
         Georgia,
@@ -893,55 +769,56 @@ body.theme-dark .weather-decoration {
         0.75;
 
     opacity:
-        0.24;
+        0.3;
 }
 
+
 #quote-display {
-    flex:
-        1;
+    flex: 1;
 
     margin:
-        var(--space-md) 0
-        var(--space-lg);
+        1rem 0 1.5rem;
 
     padding:
         1.4rem;
 
     background-color:
-        var(--color-surface-solid);
+        var(--surface);
 
     border:
         1px solid
-        var(--color-border);
+        var(--border);
 
     border-left:
         5px solid
-        var(--color-accent);
+        var(--sky-blue-medium);
 
     border-radius:
-        var(--radius-md);
+        var(--radius-medium);
 
     box-shadow:
-        var(--shadow-sm);
+        var(--shadow-small);
 }
+
 
 #quote-display p:first-child {
     font-family:
-        var(--font-serif);
+        var(--font-heading);
 
     font-size:
-        1.15rem;
+        1.12rem;
 
     line-height:
         1.7;
 }
 
+
 #quote-display p:last-child {
     margin-top:
-        var(--space-md);
+        1rem;
 
     color:
-        var(--color-muted);
+        var(--muted);
 
     font-size:
         0.9rem;
@@ -950,24 +827,79 @@ body.theme-dark .weather-decoration {
         600;
 }
 
+
+/* ==========================
+   NEW QUOTE BUTTON
+   ========================== */
+
 .quote-button {
     align-self:
         flex-start;
+
+    padding:
+        0.7rem 1.1rem;
+
+    color:
+        #173f55;
+
+    background-color:
+        var(--sky-blue);
+
+    border:
+        1px solid
+        #84cbe9;
+
+    border-radius:
+        10px;
+
+    font:
+        inherit;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.quote-button:hover:not(:disabled) {
+    color:
+        #ffffff;
+
+    background-color:
+        var(--sky-blue-dark);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.quote-button:disabled {
+    opacity:
+        0.5;
+
+    cursor:
+        not-allowed;
 }
 
 
 /* ==========================
-   17. LOADING
+   LOADING
    ========================== */
 
 .loading {
     color:
-        var(--color-muted);
+        var(--muted);
 }
 
+
 .loading::before {
-    content:
-        '';
+    content: '';
 
     display:
         inline-block;
@@ -979,14 +911,14 @@ body.theme-dark .weather-decoration {
         0.8rem;
 
     margin-right:
-        var(--space-sm);
+        0.5rem;
 
     border:
         2px solid
-        var(--color-border);
+        var(--border);
 
     border-top-color:
-        var(--color-accent);
+        var(--sky-blue-dark);
 
     border-radius:
         50%;
@@ -994,6 +926,7 @@ body.theme-dark .weather-decoration {
     animation:
         spin 0.9s linear infinite;
 }
+
 
 @keyframes spin {
 
@@ -1005,52 +938,21 @@ body.theme-dark .weather-decoration {
 
 
 /* ==========================
-   18. FOOTER
+   ACCESSIBILITY
    ========================== */
 
-.dashboard-footer {
-    padding:
-        1.4rem 0 0;
+button:focus-visible,
+a:focus-visible {
+    outline:
+        3px solid
+        #438bb0;
 
-    text-align:
-        center;
-
-    color:
-        #33465a;
-
-    font-family:
-        var(--font-serif);
-
-    font-size:
-        0.9rem;
-
-    font-style:
-        italic;
+    outline-offset:
+        3px;
 }
 
-.dashboard-footer p {
-    margin:
-        0;
-}
-
-body.theme-dark .dashboard-footer {
-    color:
-        #d4dce8;
-}
-
-
-/* ==========================
-   19. ACCESSIBILITY
-   ========================== */
 
 @media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        scroll-behavior:
-            auto !important;
-    }
 
     .widget,
     button {
@@ -1075,7 +977,7 @@ body.theme-dark .dashboard-footer {
 
 
 /* ==========================
-   20. TABLET
+   TABLET
    ========================== */
 
 @media (max-width: 800px) {
@@ -1089,23 +991,18 @@ body.theme-dark .dashboard-footer {
         min-height:
             auto;
     }
-
-    body {
-        background-position:
-            center top;
-    }
 }
 
 
 /* ==========================
-   21. MOBILE
+   MOBILE
    ========================== */
 
 @media (max-width: 600px) {
 
     body {
         padding:
-            var(--space-md);
+            1rem;
 
         background-position:
             center top;
@@ -1114,47 +1011,54 @@ body.theme-dark .dashboard-footer {
             scroll;
     }
 
+
     .dashboard-shell {
         padding:
-            var(--space-md);
+            1rem;
 
         border-radius:
             20px;
     }
 
-    .dashboard-header {
-        align-items:
-            flex-start;
 
+    .dashboard-header {
         flex-direction:
             column;
 
+        align-items:
+            flex-start;
+
         padding:
-            var(--space-lg);
+            1.5rem;
     }
+
 
     .dashboard-header h1 {
         font-size:
             2rem;
     }
 
+
     .theme-toggle {
         width:
             100%;
     }
 
+
     .widget {
         padding:
-            var(--space-lg);
+            1.5rem;
 
         border-radius:
-            18px;
+            20px;
     }
+
 
     .weather-temp {
         font-size:
-            3.5rem;
+            3.6rem;
     }
+
 
     .weather-decoration {
         width:

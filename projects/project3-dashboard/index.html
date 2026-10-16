@@ -1,48 +1,171 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Teri's personal dashboard featuring weather information and daily quotes."
+    >
+
     <title>Teri's Personal Data Dashboard</title>
-    <link rel="stylesheet" href="css/styles.css">
+
+    <link
+        rel="stylesheet"
+        href="css/styles.css"
+    >
 </head>
 
 <body>
 
-    <a href="#main" class="skip-link">Skip to content</a>
+    <a
+        href="#main"
+        class="skip-link"
+    >
+        Skip to content
+    </a>
 
-    <header>
-        <h1>Teri's Personal Data Dashboard</h1>
-        <button type="button" id="theme-toggle">Toggle dark mode</button>
-    </header>
 
-    <main id="main" tabindex="-1">
-        <section class="widget" aria-labelledby="weather-heading">
-            <h2 id="weather-heading">Sample Weather</h2>
+    <div class="dashboard-shell">
 
-            <div id="weather-display" class="loading"
-                 role="status" aria-live="polite">
-                Loading weather...
+        <header class="dashboard-header">
+
+            <div class="header-text">
+
+                <p class="eyebrow">
+                    PERSONAL DASHBOARD
+                </p>
+
+                <h1>
+                    Teri's Daily Dashboard
+                </h1>
+
+                <p class="header-subtitle">
+                    Today's weather and a little inspiration
+                    for the day.
+                </p>
+
             </div>
-        </section>
 
-        <section class="widget" aria-labelledby="quote-heading">
-            <h2 id="quote-heading">Daily Quote</h2>
 
-            <div id="quote-display" class="loading"
-                 role="status" aria-live="polite">
-                Loading quotes...
-            </div>
-
-            <button type="button" id="new-quote" disabled>
-                New Quote
+            <button
+                type="button"
+                id="theme-toggle"
+                class="theme-toggle"
+            >
+                Toggle dark mode
             </button>
-        </section>
-    </main>
+
+        </header>
+
+
+        <main
+            id="main"
+            tabindex="-1"
+        >
+
+            <section
+                class="widget weather-widget"
+                aria-labelledby="weather-heading"
+            >
+
+                <div class="widget-heading">
+
+                    <div>
+                        <p class="widget-label">
+                            TODAY
+                        </p>
+
+                        <h2 id="weather-heading">
+                            Weather
+                        </h2>
+                    </div>
+
+
+                    <div
+                        class="weather-decoration"
+                        aria-hidden="true"
+                    >
+                        ☀
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="weather-display"
+                    class="loading"
+                    role="status"
+                    aria-live="polite"
+                >
+                    Loading weather...
+                </div>
+
+            </section>
+
+
+            <section
+                class="widget quote-widget"
+                aria-labelledby="quote-heading"
+            >
+
+                <div class="widget-heading">
+
+                    <div>
+                        <p class="widget-label">
+                            A LITTLE INSPIRATION
+                        </p>
+
+                        <h2 id="quote-heading">
+                            Daily Quote
+                        </h2>
+                    </div>
+
+
+                    <div
+                        class="quote-decoration"
+                        aria-hidden="true"
+                    >
+                        “
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="quote-display"
+                    class="loading"
+                    role="status"
+                    aria-live="polite"
+                >
+                    Loading quotes...
+                </div>
+
+
+                <button
+                    type="button"
+                    id="new-quote"
+                    class="quote-button"
+                    disabled
+                >
+                    New Quote
+                </button>
+
+            </section>
+
+        </main>
+
+    </div>
+
 
     <script src="js/app.js"></script>
+
 </body>
 
 </html>
