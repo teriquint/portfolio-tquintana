@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;600;700&display=swap');
+
 
 /* ==========================
    1. RESET
    ========================== */
+
 *,
 *::before,
 *::after {
@@ -21,238 +23,975 @@ img {
 /* ==========================
    2. DESIGN TOKENS
    ========================== */
+
 :root {
-    /* Color */
-    --color-accent: #4d1979;
-    --color-accent-strong: #321052;
-    --color-accent-light: #efe7f7;
-    --color-text: #172033;
-    --color-muted: #657186;
-    --color-border: #d9dfeb;
-    --color-bg: #f7f8fb;
+
+    /* Fort Worth inspired colors */
+
+    --color-brick: #944e3f;
+    --color-brick-dark: #71392f;
+    --color-terracotta: #bb755d;
+
+    --color-gold: #c69a62;
+    --color-gold-light: #ead8bb;
+
+    --color-cream: #f7f1e8;
+    --color-cream-light: #fcfaf6;
+
+    --color-brown: #4c382f;
+    --color-text: #352f2b;
+    --color-muted: #756960;
+
+    --color-border: #ded2c5;
+
     --color-surface: #ffffff;
-    --color-surface-alt: #f1f5f9;
-    --color-danger: #a4262c;
-    --color-danger-strong: #7f1d23;
+    --color-surface-soft: #f7f1e8;
+
+    --color-danger: #9b3232;
+    --color-danger-dark: #742424;
 
     /* Spacing */
+
     --space-sm: 0.5rem;
     --space-md: 1rem;
     --space-lg: 1.5rem;
     --space-xl: 2rem;
+    --space-xxl: 3rem;
 
     /* Typography */
-    --text-base: 1rem;
-    --text-h3: 1.25rem;
-    --text-h2: 1.5rem;
-    --text-h1: 2.25rem;
-    --leading-body: 1.6;
-    --leading-heading: 1.2;
-    --font-stack: 'Inter', system-ui, -apple-system, sans-serif;
-    --font-serif: 'Lora', Georgia, serif;
+
+    --font-body:
+        'Inter',
+        system-ui,
+        -apple-system,
+        sans-serif;
+
+    --font-heading:
+        'Lora',
+        Georgia,
+        serif;
 
     /* Layout */
-    --page-width: 64rem;
-    --radius-md: 8px;
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 6px 14px rgba(0, 0, 0, 0.15);
+
+    --page-width: 72rem;
+
+    --radius-small: 10px;
+    --radius-medium: 16px;
+    --radius-large: 24px;
+
+    --shadow-small:
+        0 5px 14px
+        rgba(76, 56, 47, 0.09);
+
+    --shadow-medium:
+        0 12px 30px
+        rgba(76, 56, 47, 0.14);
+
+    --shadow-large:
+        0 20px 45px
+        rgba(76, 56, 47, 0.18);
 }
 
 
 /* ==========================
    3. BASE
    ========================== */
+
 body {
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    font-size: var(--text-base);
-    line-height: var(--leading-body);
-    font-family: var(--font-stack);
-}
+    min-height: 100vh;
 
-h1 {
-    font-size: var(--text-h1);
-    line-height: var(--leading-heading);
-}
+    color:
+        var(--color-text);
 
-h2 {
-    font-size: var(--text-h2);
-    line-height: var(--leading-heading);
-}
+    background-color:
+        var(--color-cream);
 
-h3 {
-    font-size: var(--text-h3);
-    line-height: var(--leading-heading);
+    font-family:
+        var(--font-body);
+
+    font-size:
+        1rem;
+
+    line-height:
+        1.6;
 }
 
 h1,
 h2,
 h3 {
-    font-family: var(--font-serif);
-    margin-bottom: var(--space-sm);
+    font-family:
+        var(--font-heading);
+
+    line-height:
+        1.2;
+}
+
+h2 {
+    font-size:
+        1.65rem;
+}
+
+h3 {
+    font-size:
+        1.25rem;
 }
 
 p {
-    margin-bottom: var(--space-md);
+    margin-bottom:
+        var(--space-md);
 }
 
 p:last-child {
-    margin-bottom: 0;
-}
-
-a {
-    color: var(--color-accent);
-}
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
+    margin-bottom:
+        0;
 }
 
 
 /* ==========================
-   4. LAYOUT
+   4. HERO
    ========================== */
-body {
-    max-width: var(--page-width);
-    margin: 0 auto;
-    padding: var(--space-lg) var(--space-md);
+
+.hero {
+    position: relative;
+
+    display: flex;
+
+    align-items:
+        flex-end;
+
+    min-height:
+        430px;
+
+    margin:
+        0;
+
+    padding:
+        3rem max(1.5rem, calc((100vw - var(--page-width)) / 2));
+
+    overflow:
+        hidden;
+
+    background-image:
+        linear-gradient(
+            to right,
+            rgba(45, 31, 24, 0.68),
+            rgba(45, 31, 24, 0.32),
+            rgba(45, 31, 24, 0.08)
+        ),
+        url("../images/fortworth.png");
+
+    background-size:
+        cover;
+
+    background-position:
+        center;
+
+    background-repeat:
+        no-repeat;
+
+    box-shadow:
+        var(--shadow-large);
 }
 
 
 /* ==========================
-   5. HEADER
+   5. HERO CONTENT
    ========================== */
-header {
-    padding: var(--space-xl);
-    background-color: var(--color-accent);
-    color: var(--color-surface);
-    border-radius: var(--radius-md);
+
+.hero-content {
+    width:
+        min(100%, 610px);
+
+    padding:
+        2rem 2.25rem;
+
+    color:
+        #ffffff;
+
+    background-color:
+        rgba(67, 45, 34, 0.76);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.2);
+
+    border-radius:
+        var(--radius-large);
+
+    box-shadow:
+        0 14px 30px
+        rgba(0, 0, 0, 0.2);
+
+    backdrop-filter:
+        blur(5px);
+
+    -webkit-backdrop-filter:
+        blur(5px);
+}
+
+.hero-label {
+    margin-bottom:
+        0.45rem;
+
+    color:
+        #f1d5a9;
+
+    font-size:
+        0.74rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.17rem;
+}
+
+.hero h1 {
+    margin-bottom:
+        0.7rem;
+
+    font-size:
+        clamp(
+            2.3rem,
+            5vw,
+            3.7rem
+        );
+
+    line-height:
+        1.08;
+}
+
+.hero-subtitle {
+    max-width:
+        520px;
+
+    color:
+        rgba(255, 255, 255, 0.9);
+
+    font-size:
+        1.05rem;
 }
 
 
 /* ==========================
-   6. SECTIONS
+   6. MAIN LAYOUT
    ========================== */
+
+main {
+    width:
+        min(
+            calc(100% - 2rem),
+            var(--page-width)
+        );
+
+    margin:
+        2.5rem auto 0;
+}
+
+
+/* ==========================
+   7. SECTION STYLING
+   ========================== */
+
 section {
-    margin-bottom: var(--space-xl);
+    margin-bottom:
+        var(--space-xl);
 }
 
+.add-section,
 .controls-section {
-    padding: var(--space-lg);
-    background-color: var(--color-accent-light);
-    border-radius: var(--radius-md);
+    padding:
+        2rem;
+
+    background-color:
+        rgba(255, 255, 255, 0.94);
+
+    border:
+        1px solid
+        var(--color-border);
+
+    border-radius:
+        var(--radius-large);
+
+    box-shadow:
+        var(--shadow-medium);
+}
+
+.section-heading {
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        space-between;
+
+    gap:
+        1rem;
+
+    margin-bottom:
+        1.5rem;
+}
+
+.section-label {
+    margin-bottom:
+        0.25rem;
+
+    color:
+        var(--color-brick);
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.14rem;
+}
+
+.section-icon {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        50px;
+
+    height:
+        50px;
+
+    color:
+        #725328;
+
+    background-color:
+        #f4dfb6;
+
+    border:
+        1px solid
+        #dfc18b;
+
+    border-radius:
+        50%;
+
+    font-size:
+        1.5rem;
 }
 
 
 /* ==========================
-   7. FORMS
+   8. ADD FAVORITE FORM
    ========================== */
+
+.form-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        1.25rem;
+}
+
+.form-group {
+    min-width:
+        0;
+}
+
+.notes-group {
+    grid-column:
+        1 / -1;
+}
+
 label {
-    display: block;
-    margin-bottom: var(--space-sm);
+    display:
+        block;
+
+    margin-bottom:
+        0.45rem;
+
+    color:
+        var(--color-brown);
+
+    font-size:
+        0.9rem;
+
+    font-weight:
+        700;
 }
 
 input,
 select,
 textarea {
-    width: 100%;
-    font: inherit;
-    margin-bottom: var(--space-md);
-    padding: var(--space-sm);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    background-color: var(--color-surface);
+    width:
+        100%;
+
+    padding:
+        0.78rem 0.85rem;
+
+    color:
+        var(--color-text);
+
+    background-color:
+        var(--color-cream-light);
+
+    border:
+        1px solid
+        var(--color-border);
+
+    border-radius:
+        var(--radius-small);
+
+    font:
+        inherit;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+textarea {
+    resize:
+        vertical;
+
+    min-height:
+        100px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color:
+        #9b9189;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color:
+        #c6ae99;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline:
+        none;
+
+    background-color:
+        #ffffff;
+
+    border-color:
+        var(--color-terracotta);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(187, 117, 93, 0.18);
 }
 
 
 /* ==========================
-   8. BUTTONS
+   9. FORM ACTIONS
    ========================== */
+
+.form-actions {
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        0.75rem;
+
+    margin-top:
+        1.4rem;
+}
+
+
+/* ==========================
+   10. BUTTONS
+   ========================== */
+
 button {
-    font: inherit;
-    padding: var(--space-sm) var(--space-lg);
-    border: none;
-    border-radius: var(--radius-md);
-    cursor: pointer;
+    padding:
+        0.72rem 1.2rem;
+
+    border:
+        none;
+
+    border-radius:
+        var(--radius-small);
+
+    font:
+        inherit;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform:
+        translateY(-2px);
 }
 
 .btn-primary {
-    background-color: var(--color-accent);
-    color: var(--color-surface);
+    color:
+        #ffffff;
+
+    background-color:
+        var(--color-brick);
+
+    box-shadow:
+        0 5px 12px
+        rgba(148, 78, 63, 0.2);
 }
 
 .btn-primary:hover {
-    background-color: var(--color-accent-strong);
+    background-color:
+        var(--color-brick-dark);
 }
 
 .btn-danger {
-    background-color: var(--color-danger);
-    color: var(--color-surface);
+    color:
+        #ffffff;
+
+    background-color:
+        var(--color-danger);
 }
 
 .btn-danger:hover {
-    background-color: var(--color-danger-strong);
+    background-color:
+        var(--color-danger-dark);
 }
 
 
 /* ==========================
-   9. SEARCH
+   11. SEARCH AND FILTERS
    ========================== */
+
+.controls-section {
+    background-color:
+        #efe3d5;
+}
+
+.controls-heading {
+    margin-bottom:
+        1.3rem;
+}
+
+.controls-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        1.4fr 1fr 1fr;
+
+    gap:
+        1rem;
+}
+
+.control-group input,
+.control-group select {
+    margin:
+        0;
+
+    background-color:
+        #ffffff;
+}
+
+
+/* ==========================
+   12. FAVORITES SECTION
+   ========================== */
+
+.favorites-section {
+    padding-top:
+        0.5rem;
+}
+
+.favorites-heading {
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        space-between;
+
+    gap:
+        1rem;
+
+    margin-bottom:
+        1.25rem;
+}
+
 #favorites-count {
-    color: var(--color-muted);
+    margin:
+        0;
+
+    padding:
+        0.5rem 0.8rem;
+
+    color:
+        var(--color-brown);
+
+    background-color:
+        #ead8bb;
+
+    border-radius:
+        999px;
+
+    font-size:
+        0.85rem;
+
+    font-weight:
+        600;
 }
 
 
 /* ==========================
-   10. CARDS
+   13. FAVORITES GRID
    ========================== */
+
 .favorites-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(280px, 1fr)
+        );
+
+    gap:
+        1.25rem;
 }
+
+
+/* ==========================
+   14. FAVORITE CARDS
+   ========================== */
 
 .favorite-card {
-    padding: var(--space-lg);
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    padding:
+        1.6rem;
+
+    background-color:
+        #ffffff;
+
+    border:
+        1px solid
+        var(--color-border);
+
+    border-top:
+        5px solid
+        var(--color-terracotta);
+
+    border-radius:
+        var(--radius-medium);
+
+    box-shadow:
+        var(--shadow-small);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .favorite-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        var(--shadow-medium);
 }
 
 .favorite-card h3 {
-    color: var(--color-accent);
+    margin-bottom:
+        0.9rem;
+
+    color:
+        var(--color-brick-dark);
+
+    font-size:
+        1.4rem;
 }
+
+.favorite-card p {
+    margin-bottom:
+        0.55rem;
+
+    color:
+        var(--color-muted);
+
+    font-size:
+        0.92rem;
+}
+
+.favorite-card p:nth-of-type(2) {
+    color:
+        #8a661d;
+
+    font-size:
+        1rem;
+}
+
+.favorite-card .btn-danger {
+    margin-top:
+        0.75rem;
+
+    padding:
+        0.55rem 0.9rem;
+
+    font-size:
+        0.86rem;
+}
+
+
+/* ==========================
+   15. EMPTY MESSAGE
+   ========================== */
 
 .empty-message {
-    grid-column: 1 / -1;
+    grid-column:
+        1 / -1;
+
+    padding:
+        2.5rem;
+
+    color:
+        var(--color-muted);
+
+    background-color:
+        rgba(255, 255, 255, 0.75);
+
+    border:
+        1px dashed
+        #cbb9aa;
+
+    border-radius:
+        var(--radius-medium);
+
+    text-align:
+        center;
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        1.05rem;
 }
 
 
 /* ==========================
-   11. FOOTER
+   16. FOOTER
    ========================== */
+
 footer {
-    color: var(--color-muted);
+    width:
+        min(
+            calc(100% - 2rem),
+            var(--page-width)
+        );
+
+    margin:
+        1rem auto 0;
+
+    padding:
+        1.75rem 0 2.5rem;
+
+    color:
+        var(--color-muted);
+
+    text-align:
+        center;
+
+    font-size:
+        0.86rem;
+}
+
+footer p {
+    margin-bottom:
+        0.25rem;
 }
 
 
 /* ==========================
-   12. RESPONSIVE
+   17. ACCESSIBILITY
    ========================== */
-@media (min-width: 768px) {
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline:
+        3px solid
+        #6f392f;
+
+    outline-offset:
+        3px;
+}
+
+
+/* ==========================
+   18. REDUCED MOTION
+   ========================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    button,
+    input,
+    select,
+    textarea,
+    .favorite-card {
+        transition:
+            none;
+    }
+
+    button:hover,
+    .favorite-card:hover {
+        transform:
+            none;
+    }
+}
+
+
+/* ==========================
+   19. TABLET
+   ========================== */
+
+@media (max-width: 850px) {
+
+    .form-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .notes-group {
+        grid-column:
+            1 / -1;
+    }
+
+    .controls-grid {
+        grid-template-columns:
+            1fr;
+    }
+}
+
+
+/* ==========================
+   20. MOBILE
+   ========================== */
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height:
+            390px;
+
+        padding:
+            1rem;
+
+        background-position:
+            center;
+    }
+
+    .hero-content {
+        padding:
+            1.5rem;
+
+        border-radius:
+            18px;
+    }
+
+    .hero h1 {
+        font-size:
+            2.2rem;
+    }
+
+    main {
+        width:
+            min(
+                calc(100% - 1.5rem),
+                var(--page-width)
+            );
+
+        margin-top:
+            1.5rem;
+    }
+
+    .add-section,
+    .controls-section {
+        padding:
+            1.4rem;
+
+        border-radius:
+            18px;
+    }
+
+    .form-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .notes-group {
+        grid-column:
+            auto;
+    }
+
+    .form-actions {
+        flex-direction:
+            column;
+    }
+
+    .form-actions button {
+        width:
+            100%;
+    }
+
+    .favorites-heading {
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+    }
+
+    #favorites-count {
+        align-self:
+            flex-start;
+    }
+
     .favorites-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-columns:
+            1fr;
+    }
+
+    footer {
+        width:
+            calc(100% - 1.5rem);
     }
 }

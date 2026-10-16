@@ -4,107 +4,360 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="A personal tracker for favorite local Fort Worth places."
+    >
+
     <title>Local Favorites Tracker</title>
+
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Local Favorites Tracker</h1>
-        <p>Keep track of your favorite local places.</p>
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <p class="hero-label">
+                FORT WORTH FAVORITES
+            </p>
+
+            <h1>
+                Local Favorites Tracker
+            </h1>
+
+            <p class="hero-subtitle">
+                Keep track of the local places you love and
+                the ones you want to remember.
+            </p>
+
+        </div>
+
     </header>
+
 
     <main>
 
         <section class="add-section">
-            <h2>Add New Favorite</h2>
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="section-label">
+                        ADD A PLACE
+                    </p>
+
+                    <h2>
+                        Add New Favorite
+                    </h2>
+                </div>
+
+                <span
+                    class="section-icon"
+                    aria-hidden="true"
+                >
+                    ★
+                </span>
+
+            </div>
+
 
             <form id="add-favorite-form">
 
-                <div class="form-group">
-                    <label for="name">Place Name *</label>
-                    <input type="text" id="name" name="name" required aria-required="true">
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="name">
+                            Place Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Favorite local place"
+                            required
+                            aria-required="true"
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="category">
+                            Category *
+                        </label>
+
+                        <select
+                            id="category"
+                            name="category"
+                            required
+                            aria-required="true"
+                        >
+                            <option value="">
+                                Choose a category
+                            </option>
+
+                            <option value="restaurants">
+                                Restaurant
+                            </option>
+
+                            <option value="coffee">
+                                Coffee
+                            </option>
+
+                            <option value="shopping">
+                                Shopping
+                            </option>
+
+                            <option value="entertainment">
+                                Entertainment
+                            </option>
+
+                            <option value="outdoors">
+                                Outdoors
+                            </option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="rating">
+                            Rating *
+                        </label>
+
+                        <select
+                            id="rating"
+                            name="rating"
+                            required
+                            aria-required="true"
+                        >
+                            <option value="">
+                                Choose a rating
+                            </option>
+
+                            <option value="5">
+                                5 stars
+                            </option>
+
+                            <option value="4">
+                                4 stars
+                            </option>
+
+                            <option value="3">
+                                3 stars
+                            </option>
+
+                            <option value="2">
+                                2 stars
+                            </option>
+
+                            <option value="1">
+                                1 star
+                            </option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group notes-group">
+                        <label for="notes">
+                            Notes
+                        </label>
+
+                        <textarea
+                            id="notes"
+                            name="notes"
+                            rows="3"
+                            placeholder="What do you like about this place?"
+                        ></textarea>
+                    </div>
+
                 </div>
 
-                <div class="form-group">
-                    <label for="category">Category *</label>
-                    <select id="category" name="category" required aria-required="true">
-                        <option value="">Choose a category</option>
-                        <option value="restaurants">Restaurant</option>
-                        <option value="coffee">Coffee</option>
-                        <option value="shopping">Shopping</option>
-                        <option value="entertainment">Entertainment</option>
-                        <option value="outdoors">Outdoors</option>
-                    </select>
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Add Favorite
+                    </button>
+
+                    <button
+                        type="button"
+                        id="clear-all"
+                        class="btn-danger"
+                    >
+                        Clear All Favorites
+                    </button>
+
                 </div>
 
-                <div class="form-group">
-                    <label for="rating">Rating *</label>
-                    <select id="rating" name="rating" required aria-required="true">
-                        <option value="">Choose a rating</option>
-                        <option value="5">5 stars</option>
-                        <option value="4">4 stars</option>
-                        <option value="3">3 stars</option>
-                        <option value="2">2 stars</option>
-                        <option value="1">1 star</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="notes">Notes</label>
-                    <textarea id="notes" name="notes" rows="3"></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Add Favorite</button>
-                <button type="button" id="clear-all" class="btn-danger">
-                Clear All Favorites
-                </button>
             </form>
+
         </section>
+
 
         <section class="controls-section">
-    <label for="search-input">Search favorites</label>
-    <input type="search" id="search-input" placeholder="Search names and notes">
 
-    <label for="category-filter">Filter by category</label>
-    <select id="category-filter">
-        <option value="all">All categories</option>
-        <option value="restaurants">Restaurant</option>
-        <option value="coffee">Coffee</option>
-        <option value="shopping">Shopping</option>
-        <option value="entertainment">Entertainment</option>
-        <option value="outdoors">Outdoors</option>
-    </select>
+            <div class="section-heading controls-heading">
 
-    <label for="rating-filter">Filter by rating</label>
-    <select id="rating-filter">
-        <option value="all">All ratings</option>
-        <option value="5">5 stars</option>
-        <option value="4">4 stars</option>
-        <option value="3">3 stars</option>
-        <option value="2">2 stars</option>
-        <option value="1">1 star</option>
-    </select>
+                <div>
+                    <p class="section-label">
+                        FIND A FAVORITE
+                    </p>
+
+                    <h2>
+                        Search & Filter
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="controls-grid">
+
+                <div class="control-group">
+
+                    <label for="search-input">
+                        Search favorites
+                    </label>
+
+                    <input
+                        type="search"
+                        id="search-input"
+                        placeholder="Search names and notes"
+                    >
+
+                </div>
+
+
+                <div class="control-group">
+
+                    <label for="category-filter">
+                        Filter by category
+                    </label>
+
+                    <select id="category-filter">
+
+                        <option value="all">
+                            All categories
+                        </option>
+
+                        <option value="restaurants">
+                            Restaurant
+                        </option>
+
+                        <option value="coffee">
+                            Coffee
+                        </option>
+
+                        <option value="shopping">
+                            Shopping
+                        </option>
+
+                        <option value="entertainment">
+                            Entertainment
+                        </option>
+
+                        <option value="outdoors">
+                            Outdoors
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="control-group">
+
+                    <label for="rating-filter">
+                        Filter by rating
+                    </label>
+
+                    <select id="rating-filter">
+
+                        <option value="all">
+                            All ratings
+                        </option>
+
+                        <option value="5">
+                            5 stars
+                        </option>
+
+                        <option value="4">
+                            4 stars
+                        </option>
+
+                        <option value="3">
+                            3 stars
+                        </option>
+
+                        <option value="2">
+                            2 stars
+                        </option>
+
+                        <option value="1">
+                            1 star
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
 
         </section>
 
-        <section class="favorites-section">
-            <p id="favorites-count"></p>
 
-            <div id="favorites-list" class="favorites-grid">
+        <section class="favorites-section">
+
+            <div class="favorites-heading">
+
+                <div>
+                    <p class="section-label">
+                        MY LOCAL LIST
+                    </p>
+
+                    <h2>
+                        Saved Favorites
+                    </h2>
+                </div>
+
+                <p id="favorites-count"></p>
+
             </div>
+
+
+            <div
+                id="favorites-list"
+                class="favorites-grid"
+            >
+            </div>
+
         </section>
 
     </main>
 
+
     <footer>
-        <p>&copy; 2026 Teri Quintana</p>
+
+        <p>
+            Made for exploring and remembering favorite Fort Worth places.
+        </p>
+
+        <p>
+            &copy; 2026 Teri Quintana
+        </p>
+
     </footer>
+
 
     <script src="js/app.js"></script>
 
 </body>
 
 </html>
-
