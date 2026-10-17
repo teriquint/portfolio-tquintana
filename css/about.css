@@ -1,0 +1,426 @@
+/* ==========================
+   EXPERIENCE PAGE ONLY
+   ========================== */
+
+
+/* ==========================
+   PAGE HEADER
+   ========================== */
+
+header {
+    min-height: 0 !important;
+    padding: 2.25rem 2.75rem !important;
+}
+
+.header-text h1 {
+    max-width: 850px;
+    margin-bottom: 0.75rem;
+
+    font-size: clamp(1.35rem, 2vw, 1.7rem);
+    line-height: 1.15;
+}
+
+.header-text>p:last-child {
+    max-width: 720px;
+
+    margin-bottom: 0;
+
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.page-eyebrow {
+    margin-bottom: 0.5rem;
+
+    color: #f2c94c;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 0.14rem;
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================
+   REMOVE GLOBAL SECTION SPACE
+   ========================== */
+
+main {
+    padding-top: 1.5rem !important;
+}
+
+main>section {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+
+/* ==========================
+   GRADUATION
+   ========================== */
+
+.graduation-highlight {
+    position: relative;
+
+    max-width: 900px;
+
+    margin:
+        0 auto 2rem !important;
+
+    padding:
+        1.5rem 1.75rem !important;
+
+    overflow: hidden;
+
+    color: #ffffff;
+
+    background-color: #321052;
+
+    border-left:
+        7px solid #f2c94c;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 8px 22px rgba(50, 16, 82, 0.14);
+}
+
+.graduation-highlight::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    right: -45px;
+    top: -55px;
+
+    background-color:
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 50%;
+}
+
+.graduation-highlight>* {
+    position: relative;
+
+    z-index: 1;
+}
+
+.graduation-label {
+    margin-bottom: 0.3rem;
+
+    color: #f2c94c;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 0.14rem;
+
+    text-transform: uppercase;
+}
+
+.graduation-highlight h2 {
+    margin-bottom: 0.25rem;
+
+    color: #ffffff;
+
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+.graduation-degree {
+    margin-bottom: 0.65rem;
+
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.graduation-highlight p {
+    max-width: 700px;
+
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+
+/* ==========================
+   REGULAR SECTIONS
+   ========================== */
+
+.experience-section {
+    max-width: 820px;
+
+    margin:
+        0 auto 1.75rem !important;
+
+    padding:
+        0 !important;
+}
+
+.experience-section h2 {
+    margin-bottom: 0.55rem;
+
+    color: #4d1979;
+
+    font-size: 1.35rem;
+    line-height: 1.25;
+}
+
+.experience-section p {
+    max-width: 68ch;
+
+    margin-bottom: 0.7rem;
+
+    color: #3f3b42;
+
+    font-size: 0.96rem;
+    line-height: 1.65;
+}
+
+.experience-section p:last-child {
+    margin-bottom: 0;
+}
+
+.section-kicker {
+    margin-bottom: 0.2rem;
+
+    color: #67636a;
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12rem;
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================
+   SKILLS
+   ========================== */
+
+.about-skills-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 0.85rem;
+
+    margin-top: 1rem;
+}
+
+.about-skill-card {
+    padding: 1.1rem;
+
+    background-color: #ffffff;
+
+    border:
+        1px solid #ddd7e2;
+
+    border-top:
+        4px solid #4d1979;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 3px 9px rgba(50, 16, 82, 0.06);
+}
+
+.about-skill-card h3 {
+    margin-bottom: 0.35rem;
+
+    color: #4d1979;
+
+    font-size: 1rem;
+    line-height: 1.25;
+}
+
+.about-skill-card p {
+    margin: 0;
+
+    color: #67636a;
+
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+
+/* ==========================
+   LIFE AT TCU
+   ========================== */
+
+.about {
+    display: grid;
+
+    grid-template-columns:
+        210px minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 2rem;
+
+    max-width: 820px;
+
+    margin:
+        2rem auto 0 !important;
+
+    padding:
+        1.5rem 0 !important;
+
+    border-top:
+        1px solid #ddd7e2;
+
+    border-bottom:
+        1px solid #ddd7e2;
+}
+
+.about-image {
+    width: 210px;
+}
+
+.about-image img {
+    width: 100%;
+
+    border-bottom:
+        5px solid #f2c94c;
+
+    box-shadow:
+        0 3px 10px rgba(50, 16, 82, 0.08);
+}
+
+.about-text {
+    max-width: 58ch;
+}
+
+.about-text h2 {
+    margin-bottom: 0.5rem;
+
+    color: #4d1979;
+
+    font-size: 1.35rem;
+}
+
+.about-text p {
+    margin-bottom: 0.65rem;
+
+    font-size: 0.96rem;
+    line-height: 1.6;
+}
+
+
+/* ==========================
+   TABLET
+   ========================== */
+
+@media (max-width: 767px) {
+
+    header {
+        padding:
+            2rem 1.75rem !important;
+    }
+
+    .header-text h1 {
+        font-size: 2rem;
+    }
+
+    .graduation-highlight {
+        padding:
+            1.4rem !important;
+    }
+
+    .about-skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about {
+        grid-template-columns:
+            180px 1fr;
+
+        gap: 1.4rem;
+    }
+
+    .about-image {
+        width: 180px;
+    }
+
+}
+
+
+/* ==========================
+   MOBILE
+   ========================== */
+
+@media (max-width: 600px) {
+
+    main {
+        padding-top:
+            1.25rem !important;
+    }
+
+    header {
+        padding:
+            1.75rem 1.4rem !important;
+    }
+
+    .header-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .header-text>p:last-child {
+        font-size: 0.95rem;
+    }
+
+    .graduation-highlight {
+        margin-bottom:
+            1.75rem !important;
+
+        padding:
+            1.3rem !important;
+    }
+
+    .graduation-highlight h2 {
+        font-size: 1.35rem;
+    }
+
+    .experience-section {
+        margin-bottom:
+            1.5rem !important;
+
+        padding:
+            0 !important;
+    }
+
+    .experience-section h2 {
+        font-size: 1.25rem;
+    }
+
+    .about-skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+
+        gap: 1.2rem;
+
+        margin-top:
+            1.75rem !important;
+
+        padding:
+            1.25rem 0 !important;
+    }
+
+    .about-image {
+        width: 190px;
+    }
+
+    .about-text h2 {
+        font-size: 1.25rem;
+    }
+
+}
