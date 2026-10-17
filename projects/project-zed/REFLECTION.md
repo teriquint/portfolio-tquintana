@@ -1,0 +1,7 @@
+# Developer Reflection
+
+The main new technique I learned in Project Zed was working with JavaScript dates. I used dates to compare task deadlines with the current date so the app could automatically identify tasks as Past Due, Due Today, or In Process. I also used those dates to help sort tasks by priority. This was one of the first times I felt like my JavaScript was using the data to make decisions instead of only responding to a button click.
+
+As I added more features, I also learned how much different parts of an application affect each other. Editing a project name also meant updating the tasks connected to that project. Completing, reopening, archiving, filtering, and saving projects all had to continue working together. Testing the app helped me understand that adding a feature is only part of the work. I also have to think about how it affects everything that is already there.
+
+AI helped me troubleshoot code, understand JavaScript concepts, and explore different ways to build features, but it could not make the final decisions for me. I had to decide which features were actually useful, how the application should be organized, and what the design should look like. After feedback during my project walkthrough, I changed the desktop design so the office graphic became part of the header instead of competing with the Task Tracker. That was a design decision I had to make based on feedback and how I wanted the application to feel.
